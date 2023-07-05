@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>002.html</title>
+    <style>
+        /* 자손(하위) 선택자 */
+        section p {
+            border: 3px solid skyblue;
+        }
+
+        /* 자식 선택자(직계자손) */
+        section>p {
+            background: gold;
+        }
+
+        /* 일반 형제 선택자 */
+        section~p {
+            border: 3px solid seagreen;
+        }
+
+        /* 인접 형제 선택자 */
+        section+p {
+            background: pink;
+        }
+    </style>
+</head>
+
+<body>
+    <p>하나</p>
+    <p>둘</p>
+    <p>셋</p>
+
+    <section>
+        <div>
+            <p>넷</p>
+        </div>
+        <p>다섯</p>
+        <p>여섯</p>
+    </section>
+
+    <p>일곱</p>
+    <p>여덟</p>
+    <p>아홉</p>
+    <a href="mailto:google@gmail.com">mailto:google@gmail.com</a>
+</body>
+
+</html>
