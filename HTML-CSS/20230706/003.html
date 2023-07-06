@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>목록 관련 태그</title>
+    <style>
+        ul {
+            list-style: none;
+        }
+
+        ul li {
+            position: relative;
+            padding-left: 1em;
+        }
+
+        /* 리스트 카운터 커스텀 */
+        ul li::before {
+            content: "";
+            display: block;
+            width: 0.3em;
+            height: 0.3em;
+            transform: rotate(45deg);
+            border: 2px solid royalblue;
+            border-width: 2px 2px 0 0;
+            position: absolute;
+            left: 0;
+            top: 0.4em;
+        }
+    </style>
+</head>
+
+<body>
+    <ol>
+        <li>리스트</li>
+        <li>리스트</li>
+        <li>리스트</li>
+    </ol>
+
+    <ul>
+        <li>리스트</li>
+        <li>리스트</li>
+        <li>리스트</li>
+    </ul>
+
+    <dl>
+        <dt>프론트엔드 스쿨</dt>
+        <dd>7기</dd>
+    </dl>
+</body>
+
+</html>

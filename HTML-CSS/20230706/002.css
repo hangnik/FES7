@@ -1,0 +1,31 @@
+/* 첫글자만 대문자 처리 */
+/* p::first-letter {
+  text-transform: uppercase;
+}
+ */
+
+p {
+  font-family: "Noto Sans KR", sans-serif;
+  font-weight: 400;
+  text-transform: capitalize;
+
+  /* 1줄 말줄임 처리 */
+  /* white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis; */
+
+  /* 여러줄 말줄임 처리 */
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+}
+
+.fes7 {
+  text-transform: capitalize;
+  text-decoration: orange underline wavy 3px;
+}
+
+.shadow {
+  text-shadow: 1px 1px 2px red, 0 0 1em blue, 0 0 0.2em blue;
+}

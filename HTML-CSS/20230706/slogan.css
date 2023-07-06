@@ -1,0 +1,24 @@
+@font-face {
+  font-family: "Gothic_Goding";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/naverfont_05@1.0/Gothic_Goding.woff")
+    format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+div {
+  background-image: url(wave.png);
+}
+
+p {
+  display: flex;
+  justify-content: center;
+  color: #ffffff;
+  padding: 60px 0;
+  font-size: 8rem;
+  font-style: italic;
+  font-family: Gothic_Goding;
+  font-weight: bold;
+  letter-spacing: 1.5rem;
+  text-shadow: 4px 4px 0px #bdbdbd;
+}
