@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>margin</title>
+    <style>
+        .box1,
+        .box2,
+        .box3 {
+            width: 100px;
+            height: 100px;
+        }
+
+        .box1 {
+            background-color: royalblue;
+            margin: 40px;
+        }
+
+        .box2 {
+            background-color: salmon;
+            margin: 20px;
+        }
+
+        .box3 {
+            background-color: gold;
+        }
+
+        .parent {
+            width: 400px;
+            height: 100px;
+            background-color: skyblue;
+            /* overflow: hidden; */
+            overflow-x: auto;
+            overflow-y: hidden;
+        }
+
+        .child {
+            width: 500px;
+            height: 200px;
+            background-color: slateblue;
+            margin: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box1">
+        box1
+    </div>
+    <div class="box2">
+        box2
+    </div>
+    <div class="box3">
+        box3
+    </div>
+
+    <div class="parent">
+        <div class="child">Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat sunt, eius rerum in quam
+            cupiditate vitae esse reiciendis explicabo ratione possimus facilis distinctio quo natus nesciunt eaque
+            dolore dicta quis.</div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>박스 모델</title>
+    <style>
+        .box1 {
+            background-color: skyblue;
+            width: 100px;
+            border: 10px solid royalblue;
+            /* 보더값을 포함하여 width 값 계산 */
+            box-sizing: border-box;
+        }
+
+        .box2 {
+            width: 100px;
+            height: 100px;
+            margin: auto 0 auto auto;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box1">
+        box
+    </div>
+    <div class="box2">
+        box
+    </div>
+</body>
+
+</html>
