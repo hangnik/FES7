@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>flex</title>
+    <style>
+        .container {
+            height: 100px;
+            background-color: rosybrown;
+            display: flex;
+            gap: 20px;
+            /* flex-direction: row-reverse; */
+            justify-content: space-evenly;
+            align-items: end;
+        }
+
+        .item {
+            background-color: skyblue;
+            flex-basis: 200px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="item">item A</div>
+        <div class="item">item B</div>
+        <div class="item">item C</div>
+        <div class="item">item D</div>
+    </div>
+</body>
+
+</html>

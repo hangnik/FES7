@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>텍스트 숨김처리</title>
+    <style>
+        p:first-child {
+            /* display: none; */
+            /* visibility: hidden; */
+            /* width: 0px;
+            height: 0px;
+            overflow: hidden; */
+            /* font-size: 0px;
+            line-height: 0px; */
+            /* text-indent: -9999px; */
+            /* position: absolute;
+            left: -9999px;
+            top: auto;
+            width: 1px;
+            height: 1px;
+            overflow: hidden; */
+            clip: rect(1px, 1px, 1px, 1px);
+            clip-path: inset(50%);
+            width: 1px;
+            height: 1px;
+            margin: -1px;
+            overflow: hidden;
+            padding: 0;
+            position: absolute;
+        }
+    </style>
+</head>
+
+<body>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi excepturi incidunt facilis, voluptates minima
+        molestias, beatae nulla soluta, neque voluptatibus possimus ipsum? Consequatur dolorum ut quo. Tenetur assumenda
+        sit facilis.</p>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi maiores cupiditate modi dicta atque, eligendi
+        excepturi! Mollitia hic eius quibusdam. Alias fugiat magni vel, molestias autem ipsam reiciendis voluptas quis.
+    </p>
+</body>
+
+</html>

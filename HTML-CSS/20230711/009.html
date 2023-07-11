@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>layout-flex</title>
+    <style>
+        .container {
+            display: flex;
+        }
+
+        header {
+            background-color: skyblue;
+            height: 100px;
+        }
+
+        section {
+            background-color: salmon;
+            height: 300px;
+            flex-basis: 0;
+            flex-grow: 2;
+        }
+
+        aside {
+            background-color: gold;
+            height: 300px;
+            flex-basis: 100px;
+            flex-grow: 1;
+            flex-shrink: 0;
+        }
+
+        footer {
+            background-color: slateblue;
+            height: 100px;
+        }
+    </style>
+</head>
+
+<body>
+    <header>header</header>
+    <div class="container">
+        <section>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam impedit, nulla eaque necessitatibus
+            repellendus similique optio, sint, sequi delectus ullam non eum eligendi quam maiores maxime quidem nemo?
+            Nemo, dolores?</section>
+        <aside>Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim fugiat dicta impedit odio, velit vero, in
+            veniam dolore molestiae asperiores voluptatibus qui dignissimos suscipit quasi accusantium similique beatae
+            reiciendis ducimus. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Architecto dolore obcaecati,
+            qui eveniet nobis totam dolores. Obcaecati maiores, adipisci doloribus, fugiat veniam assumenda dignissimos
+            voluptatem cumque, hic molestias natus a!</aside>
+    </div>
+    <footer>footer</footer>
+</body>
+
+</html>

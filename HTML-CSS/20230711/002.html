@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>float</title>
+    <style>
+        .container {
+            background: skyblue;
+            margin-bottom: 20px;
+        }
+
+        [class^="box"] {
+            width: 100px;
+            height: 100px;
+            background: rgb(141, 75, 246);
+            color: #fff;
+            line-height: 100px;
+            text-align: center;
+        }
+
+        [class^="box"]:first-child {
+            background: royalblue;
+        }
+
+        [class^="box"]:last-child {
+            background: salmon;
+        }
+
+
+        .box1 {
+            float: left;
+        }
+
+        .box2 {
+            float: left;
+        }
+
+        .box3 {
+            /* clear: both; */
+            float: left;
+        }
+
+        /* clear-fix */
+        .container::after {
+            content: '';
+            display: block;
+            clear: both;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        container
+        <div class="box1">A</div>
+        <div class="box2">B</div>
+        <div class="box3">C</div>
+    </div>
+</body>
+
+</html>
