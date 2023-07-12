@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <style>
+        div {
+            background-color: gainsboro;
+            display: flex;
+        }
+
+        p {
+            background-color: skyblue;
+            width: 200px;
+            height: 200px;
+            /* flex-shrink: 0; */
+            flex-basis: 0;
+        }
+
+        p:nth-child(1) {
+            /* order: 20; */
+            flex-grow: 2;
+        }
+
+        p:nth-child(2) {
+            background-color: azure;
+            /* order: 10; */
+            flex-grow: 3;
+        }
+
+        p:nth-child(3) {
+            flex-grow: 1;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <p>안녕하세요</p>
+        <p>반가워요</p>
+        <p>잘있어요</p>
+    </div>
+</body>
+
+</html>
