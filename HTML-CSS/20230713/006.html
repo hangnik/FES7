@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>속성선택자</title>
+    <style>
+        [title] {
+            background-color: gold;
+        }
+
+        [title='hello1'] {
+            border: 2px solid rosybrown;
+        }
+
+        [target] {
+            color: red;
+        }
+
+        [href ^='https'] {
+            border: 2px solid green;
+        }
+    </style>
+</head>
+
+<body>
+    <p title="hello1">안녕하세요</p>
+    <p>안녕하세요</p>
+    <p>안녕하세요</p>
+    <p title="hello2">안녕하세요</p>
+    <p>안녕하세요</p>
+    <a href="#" title="새창" target="_blank">안녕하세요</a>
+    <a href="https://naver.com" title="새창" target="_blank">네이버</a>
+    <a href="https://google.com" title="새창" target="_blank">구글</a>
+</body>
+
+</html>

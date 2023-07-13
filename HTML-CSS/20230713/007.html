@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>transform</title>
+    <style>
+        .box {
+            width: 100px;
+            height: 100px;
+            background-color: royalblue;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .box:nth-child(even) {
+            background-color: seagreen;
+        }
+
+        .scale {
+            /* transform-origin: 0 0; */
+            transition: all 0.3s ease-in-out;
+        }
+
+        .scale:hover {
+            /* transform: scale(1.2, 2); */
+            /* transform: rotate(360deg); */
+            /* transform: rotate(1turn); */
+            /* transform: translate(50px, 50px); */
+            /* transform: skew(30deg, 30deg); */
+
+            /* 여러 속성값을 주고 싶으면 한줄에 다 적어야 함 */
+            transform: scale(1.5) rotate(360deg) translate(10px, 10px);
+            rotate: 2turn;
+            scale: 0.5;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box scale">box</div>
+    <div class="box">box</div>
+</body>
+
+</html>

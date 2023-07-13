@@ -1,0 +1,57 @@
+@font-face {
+  font-family: "Pretendard-Bold";
+  src: url("https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Bold.woff")
+    format("woff");
+  font-weight: 700;
+  font-style: normal;
+}
+
+:root {
+  --main-color: #2d3848;
+  --text-color: #cbd5df;
+  --bg-color: #343f50;
+}
+
+.positive {
+  --main-color: #439aff;
+  --text-color: #439aff;
+  --bg-color: #343f50;
+}
+
+.negative {
+  --main-color: #eb5757;
+  --text-color: #eb5757;
+  --bg-color: #343f50;
+}
+
+.btn {
+  font-family: Pretendard-Bold;
+  width: 88px;
+  height: 32px;
+  transition: all 0.3s ease-in-out;
+}
+
+.btn:disabled {
+  color: #4a5568;
+  background-color: #3a4556;
+  border: 1px solid #343e4e;
+}
+
+.btn:enabled {
+  border: 1px solid var(--bg-color);
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  box-shadow: inset 1px 1px 0 0 rgba(255, 255, 255, 0.1);
+}
+
+.btn:enabled:hover {
+  color: #fff;
+  background-color: var(--main-color);
+  border: 1px solid var(--main-color);
+  box-shadow: inset 1px 1px 0 0 rgba(255, 255, 255, 0.2);
+  text-decoration: underline;
+}
+
+.btn:enabled:active {
+  box-shadow: inset 1px 1px 0 0 rgba(0, 0, 0, 0.1);
+}
