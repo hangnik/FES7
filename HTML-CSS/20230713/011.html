@@ -17,6 +17,7 @@
         th,
         td {
             border: 1px solid black;
+            padding: 6px 20px;
             text-align: center;
         }
 
@@ -41,26 +42,26 @@
         <thead>
             <tr>
                 <th>구분</th>
-                <th rowspan="2">한국사 영역</th>
-                <th>국어 영역</th>
-                <th>수학 영역</th>
-                <th rowspan="2">영어 영역</th>
-                <th colspan="2">탐구 영역</th>
-                <th>제 2 외국어 / 한문 영역</th>
+                <th scope="col" rowspan="2">한국사 영역</th>
+                <th scope="col">국어 영역</th>
+                <th scope="col">수학 영역</th>
+                <th scope="col" rowspan="2">영어 영역</th>
+                <th scope="colgroup" colspan="2">탐구 영역</th>
+                <th scope="col">제 2 외국어 / 한문 영역</th>
             </tr>
             <tr>
-                <th>선택과목</th>
-                <th>화법과 작문</th>
-                <th>확률과 통계</th>
-                <th>생활과 윤리</th>
-                <th>지구과학1</th>
-                <th>독일어</th>
+                <th scope="col">선택과목</th>
+                <th scope="col">화법과 작문</th>
+                <th scope="col">확률과 통계</th>
+                <th scope="col">생활과 윤리</th>
+                <th scope="col">지구과학1</th>
+                <th scope="col">독일어</th>
             </tr>
         </thead>
 
         <tbody>
             <tr>
-                <th>표준점수</th>
+                <th scope="row">표준점수</th>
                 <td rowspan="2">&nbsp;</td>
                 <td>131</td>
                 <td>137</td>
@@ -70,7 +71,7 @@
                 <td rowspan="2">&nbsp;</td>
             </tr>
             <tr>
-                <th>백준위</th>
+                <th scope="row">백준위</th>
                 <td>93</td>
                 <td>95</td>
                 <td>75</td>
@@ -80,7 +81,7 @@
 
         <tfoot>
             <tr>
-                <th>등급</th>
+                <th scope="row">등급</th>
                 <td>2</td>
                 <td>2</td>
                 <td>2</td>

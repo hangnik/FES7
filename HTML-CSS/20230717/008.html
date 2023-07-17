@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>flex</title>
+    <style>
+        .container {
+            width: 520px;
+            height: 520px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .container div {
+            flex-basis: 0;
+        }
+
+        .item-a {
+            background-color: royalblue;
+
+        }
+
+        .item-b {
+            background-color: gold;
+
+        }
+
+        .item-c {
+            background-color: slateblue;
+        }
+
+        .item-d {
+            background-color: orange;
+        }
+
+        .item-e {
+            background-color: salmon;
+        }
+
+        .item-f {
+            background-color: seagreen;
+        }
+
+        .con1 {
+            flex-grow: 3;
+        }
+
+        .con2 {
+            flex-grow: 2;
+            display: flex;
+        }
+
+        .con2 .item-e {
+            flex-grow: 2;
+        }
+
+        .con2 .item-f {
+            flex-grow: 3;
+        }
+
+        /* con1 분할 */
+        .con1 {
+            display: flex;
+        }
+
+        .con1 .con1-1 {
+            flex-grow: 3;
+        }
+
+        .con1 .item-d {
+            flex-grow: 2;
+        }
+
+        /* con1-1 분할 */
+        .con1-1 {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .con1-1 .item-a {
+            flex-grow: 2;
+        }
+
+        .con1-1 .con1-1-1 {
+            flex-grow: 1;
+        }
+
+        /* con1-1-1 */
+        .con1-1-1 {
+            display: flex;
+        }
+
+        .con1-1-1 .item-b {
+            flex-grow: 2;
+        }
+
+        .con1-1-1 .item-c {
+            flex-grow: 1;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="con1">
+            <div class="con1-1">
+                <div class="item-a">A</div>
+                <div class="con1-1-1">
+                    <div class="item-b">B</div>
+                    <div class="item-c">C</div>
+                </div>
+            </div>
+            <div class="item-d">D</div>
+        </div>
+        <div class="con2">
+            <div class="item-e">E</div>
+            <div class="item-f">F</div>
+        </div>
+    </div>
+
+</body>
+
+</html>

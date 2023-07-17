@@ -1,0 +1,177 @@
+@font-face {
+  font-family: "Pretendard-Regular";
+  src: url("https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff")
+    format("woff");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Pretendard-Bold";
+  src: url("https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Bold.woff")
+    format("woff");
+  font-weight: 700;
+  font-style: normal;
+}
+
+/* reset CSS */
+body,
+h2,
+h3,
+p {
+  margin: 0;
+}
+
+h2,
+h3 {
+  font: inherit;
+}
+
+ul,
+li {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button:enabled {
+  cursor: pointer;
+}
+
+img {
+  max-width: 100%;
+}
+
+/* font weight bold */
+.fwd {
+  font-family: "Pretendard-Bold", sans-serif;
+}
+
+.small-font {
+  color: #5a6a72;
+  font-size: 12px;
+}
+
+body {
+  color: #29363d;
+  font-family: Pretendard-Regular, sans-serif;
+}
+
+.card {
+  display: inline-block;
+  width: 288px;
+  border-radius: 8px;
+  box-shadow: 2px 2px 8px 0px rgba(0, 0, 0, 0.1);
+}
+
+.inner {
+  padding: 0 16px 16px;
+}
+
+.thumbnail {
+  width: 100%;
+  aspect-ratio: 288 / 196;
+  object-fit: cover;
+  vertical-align: top;
+}
+
+.inner .content {
+  line-height: 1.6;
+  margin: 10px 0 0 0;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  height: calc(1em * 1.6 * 2);
+}
+
+.link-read {
+  font-size: 14px;
+  margin: 0 20px 0 6px;
+  text-decoration-line: underline;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.link-read img {
+  width: 4px;
+  height: 6px;
+}
+
+/* 가상요소로 화살표 모양 만들기 */
+.link-read::after {
+  content: "";
+  display: block;
+  width: 3px;
+  height: 3px;
+  border-top: 2px solid #29363d;
+  border-right: 2px solid #29363d;
+  transform: rotate(45deg);
+}
+
+.profile {
+  margin: 16px 16px 12px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.profile img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.profile-text {
+  overflow: hidden;
+}
+
+.profile-text h3 {
+  margin-bottom: 1px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 16px 16px;
+}
+
+.btn-group button {
+  background: none;
+  border: none;
+  padding: 0 0 0 8px;
+}
+
+.btn-group img {
+  width: 32px;
+  height: 32px;
+}
+
+.card-list {
+  display: grid;
+  gap: 32px 24px;
+  grid-template-columns: repeat(auto-fill, minmax(288px, auto));
+}
+
+.notice {
+  width: 1224px;
+  /* 줄어들어도 좌우 여백 (30px씩) 남기기 */
+  max-width: calc(100% - 60px);
+  margin: 0 auto;
+}
+
+.notice h2 {
+  font-size: 30px;
+  margin: 32px 0;
+}

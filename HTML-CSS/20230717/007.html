@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>layout2-grid</title>
+    <style>
+        .container {
+            width: 600px;
+            height: 600px;
+            display: grid;
+            grid-template-columns: 2fr 1fr 2fr;
+            grid-template-rows: 2fr 1fr 2fr;
+            gap: 10px;
+        }
+
+        .item1 {
+            background-color: #4169E1;
+            grid-column: 1 / 3;
+        }
+
+        .item2 {
+            background-color: #FFD602;
+            /* grid-row: 1 / 3;
+            grid-column: 3 / 4; */
+            grid-area: 1 / 3 / 3 / 4;
+        }
+
+        .item3 {
+            background-color: #695ACD;
+        }
+
+        .item4 {
+            background-color: #F4A361;
+        }
+
+        .item5 {
+            background-color: #FA8172;
+        }
+
+        .item6 {
+            background-color: #2E8B58;
+            grid-column: 2 / span 2;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="item item1">1</div>
+        <div class="item item2">2</div>
+        <div class="item item3">3</div>
+        <div class="item item4">4</div>
+        <div class="item item5">5</div>
+        <div class="item item6">6</div>
+    </div>
+</body>
+
+</html>
