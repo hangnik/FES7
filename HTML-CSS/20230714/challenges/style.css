@@ -1,0 +1,44 @@
+body,
+p,
+h1 {
+  margin: initial;
+  padding: unset;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+h1 {
+  font-size: inherit;
+  font-weight: inherit;
+}
+
+body {
+  background: url(./images/bg.png);
+}
+
+.wrapper {
+  width: 300px;
+  margin: 100px auto;
+}
+
+img {
+  vertical-align: top;
+}
+
+.text-group {
+  padding: 10px 20px;
+  background-color: #9c6035;
+  color: #fff;
+  border-radius: 0px 0px 30px 30px;
+  border-bottom: 10px solid #46260e;
+}
+
+.text-group h1 {
+  font-size: 36px;
+  font-weight: 700;
+  margin: 0 0 10px 0;
+}
+
+.text-group p {
+  color: #e8bc9c;
+  margin-bottom: 40px;
+}
