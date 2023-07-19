@@ -1,0 +1,256 @@
+@font-face {
+  font-family: "Pretendard-Regular";
+  src: url("https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff")
+    format("woff");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Pretendard-Bold";
+  src: url("https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Bold.woff")
+    format("woff");
+  font-weight: 700;
+  font-style: normal;
+}
+
+/* body,
+h1,
+h2,
+p {
+  margin: initial;
+  padding: initial;
+  font-family: Pretendard-Regular, sans-serif;
+  background: #fffaf0;
+}
+
+h1,
+h2 {
+  font-size: inherit;
+  font-weight: inherit;
+}
+
+a {
+  text-decoration: none;
+  color: initial;
+}
+
+input {
+  border: 0;
+}
+
+.a11y-hidden {
+  clip: rect(1px, 1px, 1px, 1px);
+  clip-path: inset(50%);
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #eee;
+  padding: 22px 108px;
+  background-color: #fff;
+}
+
+.register-btn {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-family: Pretendard-Bold;
+  padding: 4px 20px 4px 10px;
+}
+
+.wrapper {
+  width: 392px;
+  margin: 0 auto;
+}
+
+.login-title {
+  color: #29363d;
+  font-size: 24px;
+  font-family: Pretendard-Bold;
+  text-align: center;
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+  margin: 40px 0 52px 0;
+}
+
+.email-form,
+.pw-form {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 24px;
+}
+
+.login-form input {
+  height: 48px;
+  border-radius: 4px 4px 0px 0px;
+  border-bottom: 1px solid #677880;
+}
+
+.login-btn {
+  height: 48px;
+  border-radius: 4px;
+  background-color: #29363d;
+  color: #f4f5f5;
+  font-size: 16px;
+  font-family: Pretendard-Bold;
+}
+
+footer {
+  color: #677880;
+  text-align: center;
+  font-size: 12px;
+} */
+
+/* 강사님 코드 ----------------------------------------- */
+body {
+  margin: 0;
+  background: #fffaf0;
+  font-family: Pretendard-Regular, sans-serif;
+}
+
+img {
+  vertical-align: top;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+input,
+button {
+  font: inherit;
+}
+
+/* header */
+.header {
+  background-color: #fff;
+}
+
+.max-width {
+  width: 1284px;
+  /* 1284px보다 작아지면 부모를 넘지 않고 좌우 여백 30px */
+  max-width: calc(100% - 60px);
+  margin: auto;
+}
+
+.header .max-width {
+  height: 120px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header h1 {
+  width: 156px;
+}
+
+/* footer */
+.footer {
+  text-align: center;
+  color: #677880;
+  font-size: 12px;
+}
+
+/* button */
+.btn-join {
+  /* 부모에 flex가 있으면 width, height 값을 줄 수 있지만 유지보수를 위해 inlin-block 해주는게 좋다 + flex를 같이 줄거면 inline-flex */
+  display: inline-flex;
+  height: 40px;
+  padding: 0 20px 0 52px;
+  background-color: #fff;
+  align-items: center;
+  /* 사용자에게 안읽혀도 되는 아이콘/로고이면 보통 background, 가상요소로 처리 */
+  /* 렌더링 될 때 오류가 나거나 이미지 url을 잘못적었을 경우 background는 아무 이미지도 안뜨지만 image 태그는 엑박이 뜸 */
+  background-image: url(../img/icon-join.svg);
+  background-repeat: no-repeat;
+  background-size: 32px;
+  background-position: 10px 50%;
+}
+
+/* login */
+.login {
+  margin-top: 70px;
+}
+
+.main-title {
+  width: 250px;
+  margin: auto;
+  text-align: center;
+}
+
+.main-title svg {
+  display: block;
+  width: 100%;
+  margin-bottom: 30px;
+}
+
+@keyframes heart-move {
+  100% {
+    stroke: #ffc7d1;
+    stroke-width: 2px;
+    scale: 2;
+  }
+}
+
+.svg-heart {
+  stroke: transparent;
+  stroke-width: 0.2;
+  scale: 2.5;
+  transform-origin: 50% 20px;
+  animation: heart-move 0.5s ease infinite alternate;
+}
+
+.main-title strong {
+  color: #29363d;
+  box-shadow: inset 0 -0.5em hsla(349, 100%, 65%, 0.2);
+  border-bottom: 2px solid #ff4f6e;
+}
+
+/* login form */
+.form {
+  width: 392px;
+  margin: 40px auto 50px;
+}
+
+.form label {
+  display: block;
+  color: #29363d;
+  margin-bottom: 8px;
+}
+
+.form input {
+  width: 100%;
+  height: 48px;
+  padding: 0;
+  border: 0;
+  border-bottom: 1px solid #677880;
+  border-radius: 4px 4px 0px 0px;
+}
+
+.form > div {
+  margin-bottom: 24px;
+}
+
+.form button[type="submit"] {
+  width: 100%;
+  height: 48px;
+  border: 0;
+  background-color: #29363d;
+  color: #f4f5f5;
+  font-size: 16px;
+  border-radius: 4px;
+}

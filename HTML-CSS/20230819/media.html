@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>media-query</title>
+    <style>
+        main {
+            background-color: skyblue;
+            width: 1200px;
+            margin: auto;
+            display: grid;
+            grid-template-areas:
+                'a b'
+                'a c';
+        }
+
+        .section-a {
+            background-color: salmon;
+            grid-area: a;
+        }
+
+        .section-b {
+            background-color: gold;
+            grid-area: b;
+        }
+
+        .section-c {
+            grid-area: c;
+        }
+
+        /* 391px 부터 768px 까지 */
+        @media (min-width: 501px) and (max-width: 768px) {
+            main {
+                grid-template-areas:
+                    'a a'
+                    'b c';
+            }
+        }
+
+        /* 0 ~ 390px 까지 */
+        @media (max-width: 500px) {
+            main {
+                grid-template-areas:
+                    'a'
+                    'b'
+                    'c';
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <main>
+        <section class="section-a">A</section>
+        <section class="section-b">B</section>
+        <section class="section-c">C</section>
+    </main>
+</body>
+
+</html>
