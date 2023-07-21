@@ -1,0 +1,28 @@
+.wrapper {
+  box-shadow: inset 0 0 20px red;
+  width: 800px;
+  margin: 100px auto;
+  text-align: center;
+}
+
+.fruit {
+  background-color: gold;
+  width: 200px;
+  height: 200px;
+  display: inline-block;
+  vertical-align: top;
+  line-height: 200px;
+  border-radius: 50%;
+}
+
+.lemon {
+  background-color: lemonchiffon;
+}
+
+.fruit:nth-child(2) {
+  background-color: orange;
+}
+
+.fruit:nth-child(3) {
+  background-color: orangered;
+}
