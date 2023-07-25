@@ -1,0 +1,295 @@
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&display=swap");
+body,
+p,
+h1,
+h2,
+button,
+ul,
+li {
+  margin: initial;
+  padding: initial;
+  font-family: "Noto Sans KR", sans-serif;
+}
+
+body {
+  background: #eae8fe;
+}
+
+ul,
+li {
+  list-style: none;
+}
+
+button {
+  background: none;
+  border: initial;
+  font: inherit;
+}
+
+button:enabled {
+  cursor: pointer;
+}
+
+img {
+  vertical-align: top;
+}
+
+h1,
+h2,
+h3,
+strong {
+  font: inherit;
+}
+
+.a11y-hidden {
+  clip: rect(1px, 1px, 1px, 1px);
+  clip-path: inset(50%);
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+}
+
+/* 헤더 */
+h1 {
+  text-align: center;
+}
+
+h1 img {
+  max-width: 50%;
+}
+
+/* 기본버튼 */
+[class^="btn"] {
+  width: 100%;
+  background-color: white;
+  border-radius: 5px;
+  min-height: 32px;
+  font-size: 13px;
+  box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.5);
+}
+
+/* 메인 */
+.main {
+  width: 748px;
+  max-width: 100%;
+  margin: 67px auto;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: 50px auto;
+  grid-template-areas:
+    "sell fund"
+    "sell buy";
+  gap: 20px 28px;
+}
+
+/* 판매음료 */
+.sell-list {
+  grid-area: sell;
+  background: #fff;
+  padding: 30px 27px;
+}
+
+.sell-list-ul {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  justify-items: center;
+  gap: 12px;
+}
+
+.cola-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.5);
+  padding: 11px 11px 9px;
+  margin-bottom: 12px;
+}
+
+.cola-btn img {
+  width: 36px;
+}
+
+.cola-name {
+  color: #333;
+  font-size: 9px;
+}
+
+.cola-price {
+  border-radius: 50px;
+  background: #6327fe;
+  padding: 5px 15px;
+  color: #fff;
+  font-size: 12px;
+}
+
+/* 활성화된 버튼 */
+.cola-btn.on {
+  box-shadow: 0 0 0 4px #6327fe;
+}
+
+/* 품절된 버튼 */
+.cola-btn:disabled {
+  color: inherit;
+  position: relative;
+}
+
+.cola-btn:disabled::after {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-radius: 10px;
+}
+
+.soldout {
+  color: #eae8fe;
+  font-size: 14px;
+  z-index: 10;
+  border: 4px double #eae8fe;
+  padding: 2px 8px;
+  position: absolute;
+  width: 45px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(-18deg);
+}
+
+.sell-list-bottom {
+  display: grid;
+  grid-template-columns: auto calc((100% - (12px * 2)) / 3);
+  grid-template-rows: 33px 33px 106px;
+  gap: 12px;
+  margin-top: 20px;
+}
+
+#input-money {
+  height: 32px;
+  padding: 6px;
+  border-radius: 5px;
+  border: 1px solid #bdbdbd;
+  box-sizing: border-box;
+}
+
+#input-money::placeholder {
+  font-size: 13px;
+  color: #bdbdbd;
+}
+
+.btn {
+  padding: 8px;
+}
+
+.bg-box {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #eae8fe;
+  border-radius: 5px;
+  height: 32px;
+  padding: 0 10px;
+  font-size: 14px;
+}
+
+.add-list {
+  overflow: auto;
+  background: #eae8fe;
+  border-radius: 5px;
+  border: 1px solid #bdbdbd;
+}
+
+.add-list-ul {
+  margin: 12px;
+}
+
+.add-list-li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: #fff;
+  padding: 0 8px 0 10px;
+  height: 46px;
+  margin-bottom: 6px;
+  border-radius: 5px;
+  font-size: 9px;
+  color: #333;
+}
+
+.add-list-li img {
+  width: 18px;
+}
+
+.add-list-li strong {
+  margin-left: auto;
+  border-radius: 5px;
+  border: 1px solid#BDBDBD;
+  padding: 6px 11px;
+  color: #000;
+}
+
+.add-btn {
+  background: #6327fe;
+  color: #fff;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+/* 소지금 */
+.fund {
+  grid-area: fund;
+  background: #fff;
+  padding: 9px 27px;
+}
+
+.fund-box p {
+  font-weight: 700;
+}
+
+/* 획득한 음료 */
+.buy-list {
+  grid-area: buy;
+  background: #fff;
+  padding: 25px 27px;
+  display: flex;
+  flex-direction: column;
+}
+
+.buy-list .add-list {
+  flex-grow: 1;
+  flex-basis: 363px;
+}
+
+.buy-list h2 {
+  text-align: center;
+  margin-bottom: 14px;
+  font-weight: 700;
+}
+
+.total-price {
+  font-size: 12px;
+  text-align: right;
+  margin-top: 8px;
+}
+
+/* 반응형 미디어쿼리 */
+@media (max-width: 768px) {
+  body {
+    background-color: white;
+  }
+  .main {
+    grid-template:
+      "sell"
+      "fund"
+      "buy";
+    grid-template-columns: 100%;
+    margin: 18px auto;
+  }
+}

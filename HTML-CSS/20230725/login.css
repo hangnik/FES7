@@ -1,0 +1,248 @@
+@font-face {
+  font-family: "SpoqaHanSansNeo-Regular";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2108@1.1/SpoqaHanSansNeo-Regular.woff")
+    format("woff");
+  font-weight: 400;
+  font-style: normal;
+}
+
+body {
+  margin: initial;
+  font-family: "SpoqaHanSansNeo-Regular", "Sans-serif";
+}
+
+h1,
+h2,
+p,
+ul,
+li {
+  margin: initial;
+  padding: initial;
+}
+
+input {
+  padding: initial;
+  border: initial;
+}
+
+h1,
+h2 {
+  font: inherit;
+}
+
+ul,
+li {
+  list-style: none;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  border: initial;
+  background: none;
+  padding: initial;
+  cursor: pointer;
+}
+
+.a11y-hidden {
+  clip: rect(1px, 1px, 1px, 1px);
+  clip-path: inset(50%);
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+}
+
+.wrapper {
+  width: 520px;
+  margin: 50px auto;
+  border-radius: 10px;
+  border: 1px solid #c4c4c4;
+}
+
+/* header */
+.header {
+  text-align: center;
+  padding: 20px 188px 18px;
+  border-bottom: 1px solid #c4c4c4;
+}
+
+/* main */
+.main-txt {
+  font-size: 20px;
+  margin-bottom: 24px;
+  font-weight: 500;
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 26px 24px 20px;
+}
+
+.id {
+  margin-bottom: 10px;
+}
+
+.input-id {
+  border: 2px solid #f4492e;
+}
+
+.input-pw {
+  border: 1px solid #c4c4c4;
+}
+
+.input-id,
+.input-pw {
+  width: 100%;
+  box-sizing: border-box;
+  height: 50px;
+  border-radius: 5px;
+  padding-left: 16px;
+  font-size: 16px;
+}
+
+.btn-login {
+  width: 100%;
+  height: 50px;
+  border-radius: 5px;
+  background: #2f80ed;
+  color: #fff;
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.login-check {
+  margin: 17px 0 21px 0;
+}
+
+.login-check label {
+  color: #767676;
+}
+
+.info {
+  text-align: center;
+}
+
+.info-join,
+.info-user {
+  font-size: 14px;
+  color: #767676;
+}
+
+.info-join::after {
+  content: "|";
+  color: #767676;
+  margin: 0 10px 0 12px;
+}
+
+.txt-hide {
+  overflow: hidden;
+  width: 1px;
+  height: 1px;
+  clip-path: inset(50%);
+}
+
+.login-remain:hover svg circle {
+  fill: #2f80ed;
+}
+
+/* 간편로그인 */
+.line {
+  text-align: center;
+  color: #767676;
+  font-size: 14px;
+  margin-bottom: 20px;
+  position: relative;
+}
+
+.line::before {
+  content: "";
+  display: inline-block;
+  width: 210px;
+  height: 1px;
+  background: #c4c4c4;
+  position: absolute;
+  top: 10px;
+  left: 0;
+}
+
+.line::after {
+  content: "";
+  display: inline-block;
+  width: 210px;
+  height: 1px;
+  background: #c4c4c4;
+  position: absolute;
+  top: 10px;
+  right: 0;
+}
+
+.social-login {
+  padding: 29px 24px 25px;
+}
+
+.login-group {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.login-group li {
+  padding: 15px 0;
+  border-radius: 5px;
+  text-align: center;
+  color: #767676;
+  position: relative;
+}
+
+.login-google {
+  border: 1px solid #767676;
+}
+
+.login-fb {
+  border: 1px solid #2d9cdb;
+}
+
+.login-naver {
+  border: 1px solid #00bf18;
+}
+
+.login-kakao {
+  border: 1px solid #f2c94c;
+}
+
+[class^="link"]::before {
+  content: "";
+  position: absolute;
+  width: 28px;
+  height: 28px;
+  left: 12px;
+  top: 10px;
+
+  /* ratina 대응 */
+  background-image: url(./images/icon_sprites_ratina.png);
+  background-size: 96px 96px;
+}
+
+.link-google::before {
+  background-position: -58px -10px;
+}
+
+.link-fb::before {
+  background-position: -10px -58px;
+}
+
+.link-naver::before {
+  background-position: -58px -58px;
+}
+
+.link-kakao::before {
+  background-position: -10px -10px;
+}

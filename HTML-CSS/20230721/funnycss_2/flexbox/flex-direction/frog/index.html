@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Flexing</title>
+    <style>
+        body {
+            background-color: brown;
+            height: 100vh;
+            display: flex;
+        }
+
+        .playground {
+            border: 10px solid maroon;
+            width: 980px;
+            margin: auto auto;
+            border-radius: 30px;
+            background-color: skyblue;
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .frog {
+            background-color: mediumseagreen;
+            color: lime;
+            font-size: 40px;
+            border: 6px solid green;
+            border-radius: 10px;
+            margin: 10px;
+            flex-basis: 200px;
+        }
+
+        .playground::after,
+        .playground::before {
+            content: '';
+            flex-grow: 1;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="playground">
+        <div class="frog"><img src="images/frog.png" alt=""></div>
+        <div class="frog"><img src="images/frog.png" alt=""></div>
+        <div class="frog"><img src="images/frog.png" alt=""></div>
+    </div>
+
+</body>
+
+</html>
