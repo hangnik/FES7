@@ -20,21 +20,16 @@
                 <div class="id">
                     <label for="input-id" class="a11y-hidden">아이디</label>
                     <input type="text" id="input-id" class="input-id" placeholder="아이디">
-                    <p>아이디를 입력해 주세요.</p>
+                    <p class="alert">아이디를 입력해 주세요.</p>
                 </div>
                 <div class="pw">
                     <label for="input-pw" class="a11y-hidden">비밀번호</label>
                     <input type="password" id="input-pw" class="input-pw" placeholder="비밀번호">
-                    <p>아이디 혹은 비밀번호가 일치하지 않습니다.</p>
+                    <p class="alert">아이디 혹은 비밀번호가 일치하지 않습니다.</p>
                 </div>
                 <div class="login-check">
-                    <input type="checkbox" id="login-remain" class="login-input txt-hide">
-                    <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <circle cx="11" cy="11" r="10.5" stroke="#767676" />
-                        <path d="M15.5 8.5L10.5 14L7 10.5" stroke="#767676" stroke-linecap="round"
-                            stroke-linejoin="round" />
-                    </svg>
-                    <label for="login-remain ">로그인 상태 유지</label>
+                    <input type="checkbox" id="login-hold" class="login-input txt-hide">
+                    <label for="login-hold" class="label-hold">로그인 상태 유지</label>
                 </div>
                 <button type="submit" class="btn-login">로그인</button>
             </form>
