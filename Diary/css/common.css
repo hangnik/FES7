@@ -14,107 +14,6 @@
   font-style: normal;
 }
 
-/* body,
-h1,
-h2,
-p {
-  margin: initial;
-  padding: initial;
-  font-family: Pretendard-Regular, sans-serif;
-  background: #fffaf0;
-}
-
-h1,
-h2 {
-  font-size: inherit;
-  font-weight: inherit;
-}
-
-a {
-  text-decoration: none;
-  color: initial;
-}
-
-input {
-  border: 0;
-}
-
-.a11y-hidden {
-  clip: rect(1px, 1px, 1px, 1px);
-  clip-path: inset(50%);
-  width: 1px;
-  height: 1px;
-  margin: -1px;
-  overflow: hidden;
-  padding: 0;
-  position: absolute;
-}
-
-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  border-bottom: 1px solid #eee;
-  padding: 22px 108px;
-  background-color: #fff;
-}
-
-.register-btn {
-  display: flex;
-  align-items: center;
-  gap: 4px;
-  font-family: Pretendard-Bold;
-  padding: 4px 20px 4px 10px;
-}
-
-.wrapper {
-  width: 392px;
-  margin: 0 auto;
-}
-
-.login-title {
-  color: #29363d;
-  font-size: 24px;
-  font-family: Pretendard-Bold;
-  text-align: center;
-}
-
-.login-form {
-  display: flex;
-  flex-direction: column;
-  margin: 40px 0 52px 0;
-}
-
-.email-form,
-.pw-form {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-  margin-bottom: 24px;
-}
-
-.login-form input {
-  height: 48px;
-  border-radius: 4px 4px 0px 0px;
-  border-bottom: 1px solid #677880;
-}
-
-.login-btn {
-  height: 48px;
-  border-radius: 4px;
-  background-color: #29363d;
-  color: #f4f5f5;
-  font-size: 16px;
-  font-family: Pretendard-Bold;
-}
-
-footer {
-  color: #677880;
-  text-align: center;
-  font-size: 12px;
-} */
-
-/* 강사님 코드 ----------------------------------------- */
 body {
   margin: 0;
   background: #fffaf0;
@@ -182,7 +81,7 @@ p {
 
 .max-width {
   width: 1284px;
-  /* 1284px보다 작아지면 부모를 넘지 않고 좌우 여백 30px */
+  /* 1284px보다 커지면 부모를 넘지 않고 좌우 여백 30px */
   max-width: calc(100% - 60px);
   margin: auto;
 }
@@ -231,18 +130,18 @@ p {
   text-align: center;
   color: #677880;
   font-size: 12px;
+  margin-bottom: 50px;
 }
 
 /* button */
 [class^="btn"] {
-  /* 부모에 flex가 있으면 width, height 값을 줄 수 있지만 유지보수를 위해 inlin-block 해주는게 좋다 + flex를 같이 줄거면 inline-flex */
+  /* 부모에 flex가 있으면 width, height 값을 줄 수 있지만 유지보수를 위해 inline-block 해주는게 좋다 + flex를 같이 줄거면 inline-flex */
   display: inline-flex;
   height: 40px;
   padding: 0 20px 0 52px;
   background-color: #fff;
   align-items: center;
   /* 사용자에게 안읽혀도 되는 아이콘/로고이면 보통 background, 가상요소로 처리 */
-  /* 렌더링 될 때 오류가 나거나 이미지 url을 잘못적었을 경우 background는 아무 이미지도 안뜨지만 image 태그는 엑박이 뜸 */
   background-repeat: no-repeat;
   background-size: 32px;
   background-position: 10px 50%;
@@ -304,8 +203,9 @@ p {
 .form input {
   width: 100%;
   height: 48px;
-  padding: 0;
+  padding: 0 15px;
   border: 0;
+  box-sizing: border-box;
   border-bottom: 1px solid #677880;
   border-radius: 4px 4px 0px 0px;
 }
@@ -340,5 +240,5 @@ p {
   resize: none;
   font: inherit;
   box-sizing: border-box;
-  padding: 10px;
+  padding: 15px;
 }
