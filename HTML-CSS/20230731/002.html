@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>반응형 동영상</title>
+    <style>
+        body {
+            margin: 0;
+        }
+
+        video {
+            /* max-width: 100%; */
+
+            /* 반응형으로 백그라운드에 비디오 가득 채우기 */
+            min-width: 100%;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        /* 반응형으로 백그라운드에 iframe 가득 채우기 */
+        article {
+            position: relative;
+            /* 부모(body) 넓이의 56.25% 만큼 padding-top 값을 가짐 */
+            /* height값을 지정하려면 부모의 높이도 지정해야하기 때문에 padding-top이나 padding-bottom을 이용하여 크기를 지정하면 편리함 */
+            padding-top: 56.25%;
+
+            /* aspect-ratio로 비율을 정해줘도 됨 */
+            /* aspect-ratio: 16 / 9; */
+        }
+
+        .video-next-level {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- <video autoplay controls loop muted src="next_level.mp4"></video> -->
+    <article>
+        <iframe class="video-next-level"
+            src="https://www.youtube.com/embed/4TWR90KJl84?autoplay=1&mute=1&loop=1&playlist=4TWR90KJl84&controls=1"
+            title="YouTube video player" frameborder="0" allowfullscreen></iframe>
+    </article>
+</body>
+
+</html>

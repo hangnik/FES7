@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>반응형 이미지</title>
+    <style>
+        body {
+            margin: 0;
+        }
+
+        img {
+            width: 100%;
+
+            /* 이미지 원본 크기보다 커지지 않음 */
+            max-width: 100%;
+        }
+
+        article {
+            width: 100vw;
+            height: 100vh;
+            /* background-image: url("https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8Y2l0eXxlbnwwfHwwfHw%3D&w=1000&q=80");
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center; */
+
+            /* 반응형으로 백그라운드 꽉차게 하기 : cover */
+            background: url("https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8Y2l0eXxlbnwwfHwwfHw%3D&w=1000&q=80") center / cover no-repeat;
+
+            /* contain : 아이콘이나 로고같이 이미지가 잘리면 안될때 사용 */
+        }
+    </style>
+</head>
+
+<body>
+    <article>
+        <!-- <img src="https://i.pinimg.com/564x/64/33/88/64338884fb6713cc705612c0282a8894.jpg" alt=""> -->
+    </article>
+</body>
+
+</html>
