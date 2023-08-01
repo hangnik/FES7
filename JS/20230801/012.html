@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>String</title>
+</head>
+
+<body>
+    <script>
+        let str = 'Hello Wolrd';
+
+        // slice(시작인덱스, 종료인덱스)
+        console.log(str.slice(0, 5)); // Hello, 0부터 4까지
+        console.log(str.slice(2)); // llo Wolrd, 2부터 끝까지
+        console.log(str.slice(7, 3)); // 빈 문자열 반환
+        console.log(str.slice(-1, 5)); // 빈 문자열 반환
+        console.log(str.slice(-1, -5)); // 빈 문자열 반환
+        // 뒤에서부터 읽으면 -1부터 인덱스 시작
+        console.log(str.slice(-6, -1)); // 공백Wolr, -6부터 -2까지
+        console.log(str.slice(-6)); // 공백Wolrd, -6부터 끝까지
+
+        // substring(시작인덱스, 종료인덱스)
+        console.log(str.substring(0, 5));
+
+        // slice와 substing의 차이점
+        // 1. slice는 음수취급을 하지만 substring은 양수로 취급
+        console.log(str.slice(-5, 9)); // wor
+        console.log(str.substring(-5, 9)); // Hello Wor
+        console.log(str.substring(-1, 9)); // Hello Wor
+        // 2. 시작인덱스가 종료인덱스보다 클 경우 substring은 두 값을 바꿔 실행
+        console.log(str.slice(7, 3)); // 빈 문자열 반환
+        console.log(str.substring(7, 3)); // lo w
+
+        // substr(시작위치, 길이) : 시작인덱스부터 길이만큼 반환
+        // 명세에서 사라질 수도 있기 때문에 substr 대신 substring/slice를 사용 권장
+        console.log(str.substr(8, 3));
+        console.log(str.substr(str.indexOf("C"), 3));
+
+
+        // 문제
+        let str2 = 'paullab CEO leehojun CTO kimdohyeon';
+        // 출력 문자열 1. CEO leehojun
+        console.log(str2.indexOf('C'));
+        console.log(str2.indexOf('n'));
+        console.log(str2.slice(8, 20));
+        // 출력 문자열 2. CTO kimdohyeon
+        console.log(str2.search(/CT/g));
+        console.log(str2.search(/on/g));
+        console.log(str2.slice(21, 35));
+
+        // 강사님 답
+        let ceoIndex = str2.indexOf('CEO'); // 8
+        let ctoIndex = str2.indexOf('CTO'); // 21
+
+        let CEO = str2.slice(ceoIndex + 4, ctoIndex - 1);
+        let CTO = str2.slice(ctoIndex + 4);
+        console.log(`1. CEO ${CEO}`);
+        console.log(`2. CTO ${CTO}`);
+    </script>
+</body>
+
+</html>

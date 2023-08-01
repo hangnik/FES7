@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>문자열</title>
+</head>
+
+<body>
+    <script>
+        // 문자열 : 작은따옴표, 큰따옴표, 백틱으로 둘러싼 문자
+        let age = 10;
+        console.log(`홍길동의 나이는 ${age} 입니다`);
+        console.log('홍길동의 나이는 ' + age + ' 입니다.');
+
+        // 순서 출력
+        let name = '홍길동';
+        console.log(name[0]);
+        console.log(name[100]); // 문자열의 순서가 넘어갔을 때 undefined 출력
+        console.log(name[-1]); // undefined
+
+        // 사칙연산
+        console.log('1' + 2 + 3); //123 (다른 언어는 에러..)
+        console.log(2 + 3 + '1'); // 51 (다른 언어는 에러..)
+        console.log('b' + 'a' + + 'a'); // baNaNa...
+        console.log('ha' * 3); // NaN
+
+        // 형변환
+        console.log('1' + '1'); // 11
+        console.log(+'1' + +'1'); // 2 (권하지 않음)
+        // String -> number
+        console.log(Number('1') + Number('1')) // 2 (권하지 않음)
+        console.log(parseInt('1') + parseInt('1')) //2 (권장)
+
+        // number -> String
+        console.log(String(1) + String(1)); // 11 (권하지 않음)
+        // console.log(1.toString()); // 가능하지 않음
+        let x = 10;
+        console.log(x.toString() + x.toString()); // 1010 (권장)
+    </script>
+</body>
+
+</html>

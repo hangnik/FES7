@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>문자열 메소드</title>
+</head>
+
+<body>
+    <script>
+        let s = 'abcdefghij'
+        console.log(s.length); // 10
+        console.log(s.toUpperCase()); // 대문자로 변환
+        console.log(s.toLowerCase()); // 소문자로 변환
+
+        console.log(s.indexOf('c')); // 2, c의 인덱스값 반환
+        console.log(s.search('c')); // 2
+        console.log(s.indexOf('z')) // -1, 존재하지 않으면 -1 반환
+        console.log(s.search('z')) // -1
+
+        // 정규표현식을 넣었을 때 
+        console.log(s.indexOf(/cd/g)); // -1, indexof는 정규표현식 허용X
+        console.log(s.search(/cd/g)); // 2, search는 가능
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Type</title>
+</head>
+
+<body>
+    <script>
+        let x = 10;
+        let y = 20;
+        let z = 'kim';
+        let k = 'hayoung';
+        console.log(x + y); // 30
+        console.log(z + k); // kimhayoung
+
+        // typeof : 변수의 type을 리턴, 하지만 우리가 예상하는 값과 다른 결과가 나올 수도 있음
+        console.log(typeof (10)); // number
+        console.log(typeof ([1, 2, 3])); // object
+        console.log(typeof (null)); // object -> javascript의 버그
+        console.log(typeof ({})) // object
+        console.log(typeof (function () { })) // function
+        console.log(typeof (/a/g)) // object
+        console.log(typeof (true)) // boolean
+        console.log(typeof (NaN)) // number
+        console.log(typeof (undefined)) // undefined
+
+        // type check 함수
+        function typeCheck(value) {
+            const return_value = Object.prototype.toString.call(value);
+            const type = return_value.substring(
+                return_value.indexOf(" ") + 1,
+                return_value.indexOf("]")
+            );
+            return type.toLowerCase();
+        }
+        console.log(typeCheck(10)); // number
+        console.log(typeCheck([1, 2, 3])); // array
+        console.log(typeCheck(null)); //null
+        console.log(typeCheck({})) // object
+        console.log(typeCheck(function () { })) // function
+        console.log(typeCheck(/a/g)) // regexp
+        console.log(typeCheck(true)) // boolean
+        console.log(typeCheck(NaN)) // number
+        console.log(typeCheck(undefined)) // undefined
+    </script>
+</body>
+
+</html>

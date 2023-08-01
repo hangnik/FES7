@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>console 종류</title>
+</head>
+
+<body>
+    <script>
+        // 자주쓰는 console 종류
+        console.clear() // 콘솔창 청소
+        console.dir() // 가지고 있는 요소를 보여줌
+        console.log() // 콘솔창에 출력
+
+        let data = { a: 1, b: 2, c: 3 };
+        console.table(data); // 테이블 형태로 데이터 출력
+
+        console.group('one') // 계층화된 데이터가 있을 때 사용
+        console.log('호준/팀원')
+        console.log('하영/팀원')
+        console.log('길동/팀원')
+        console.group('two');
+        console.log('철수/팀원')
+        console.log('영희/팀원')
+        console.groupEnd() // End가 나올때까지 그룹으로 묶임
+        console.log('갑돌이/팀장')
+        console.groupEnd()
+        console.log('End');
+
+        console.error('에러발생')
+        console.warn('경고발생')
+        console.info('정보')
+
+        // 콘솔창에 CSS 추가
+        console.log('%chello world', 'color:red;font-size:32px')
+    </script>
+</body>
+
+</html>
