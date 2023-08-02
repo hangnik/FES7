@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>연산자</title>
+</head>
+
+<body>
+    <script>
+        // 단항 연산자
+        console.log(-2);
+        console.log(-(-2));
+        console.log(+2);
+        console.log(+'4');
+        console.log(~~3.14); // 소수점 제거, 비트연산자의 부정
+
+        // 증감 연산자 
+        // 앞에 있으면 바로 연산하고 뒤에 있으면 출력 후 연산
+        // 실무에서는 위치로 인한 오류는 거의 발생하지 않음
+        let num = 3;
+        console.log(++num); // 4
+        console.log(num++); // 4
+        console.log(--num); // 4
+        console.log(num--); // 4
+
+        // 비교연산자
+        // boolean 값으로 반환
+        console.log('2 > 3 : ', 2 > 3); // false
+        console.log('2 >= 3 : ', 2 >= 3); // false
+        console.log('2 < 3 : ', 2 < 3); // true
+        console.log('2 <= 3 : ', 2 <= 3); // true
+        console.log('2 == 3 : ', 2 == 3); // false
+        console.log('2 == 3 : ', 2 !== 3); // true
+        console.log('2 === 3 : ', 2 === 3); // false
+        // 등호 3개 사용을 권함 => 타입이 달라도 true로 출력됨
+        console.log(2 == '2'); // true
+    </script>
+</body>
+
+</html>

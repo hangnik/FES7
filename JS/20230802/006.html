@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>논리 연산자</title>
+</head>
+
+<body>
+    <script>
+        // boolean true/false 판단
+        Boolean('가'); // true
+        !!''; // false
+
+        // and나 or도 뒤를 볼 필요가 없으면 보지 않음!!
+        // &&(논리곱)
+        console.log(true && true); // true
+        console.log(true && false); // false
+        console.log(false && true); // false
+        console.log(false && false); // false
+        console.log('가' && '나'); // '나'
+        console.log('' && '가'); // ''
+
+        // ||(논리합)
+        console.log(true || true); // true
+        console.log(true || false); // true
+        console.log(false || true); // true
+        console.log(false || false); // false
+
+        // 실무 사용
+        // username이 false일 경우 이름없음 출력
+        let username = '';
+        console.log(username || '이름없음');
+
+        // not(부정)
+        console.log(!false); // true
+        console.log(!true); // false
+    </script>
+</body>
+
+</html>

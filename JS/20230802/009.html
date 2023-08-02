@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>단락회로평가</title>
+</head>
+
+<body>
+    <script>
+        // 단락회로평가(***) 
+        // true : 1
+        // false : 0
+        // and(&&) : 곱
+        // or(||) : 합
+        // not(!) : 부정
+
+        console.log(!"false") // false
+        console.log(!"0") // false
+
+        console.log(!false) // true
+        console.log(!0) // true
+
+        console.log('abc' / 2) // NaN
+
+        console.log(!!NaN)
+        console.log(!!undefined)
+        console.log(!!null)
+
+        // 값이 비어있는지 아닌지 체크하는 용도로 많이 사용, 특히 or 연산자 많이 사용
+        let username = ''
+        username = username || 'Guest'
+
+        let logintemplate = ''
+        // username이 true이면 (= 공백이 아니면) 로그인 표시, false이면 로그아웃 
+        if (username) {
+            logintemplate = '<li>로그아웃</li>'
+        }
+        logintemplate = logintemplate || '<li>로그인</li>'
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>연습문제</title>
+</head>
+
+<body>
+    <script>
+        // 문제 : 각 자릿수 더하기
+        let answer = 0;
+        let inputValue = 1234;
+
+        // 방법1
+        inputValue = '' + inputValue // 권장하지 않음!
+        answer += +inputValue[0]
+        answer += +inputValue[1]
+        answer += +inputValue[2]
+        answer += +inputValue[3]
+        answer
+
+        // 방법2
+        // 의도가 명확한 메서드 사용하기!
+        let answer2 = 0;
+
+        inputValue = inputValue.toString()
+        answer2 += parseInt(inputValue[0])
+        answer2 += parseInt(inputValue[1])
+        answer2 += parseInt(inputValue[2])
+        answer2 += parseInt(inputValue[3])
+        answer2
+
+        // 방법3 (나머지로 각 자릿수 구하기)
+        let answer3 = 0;
+
+        answer3 = answer3 + (inputValue % 10) // 0 -> 4
+        inputValue = parseInt(inputValue / 10) // 1234 -> 123
+
+        answer3 = answer3 + (inputValue % 10) // 4 -> 7
+        inputValue = parseInt(inputValue / 10) // 123 -> 12
+
+        answer3 = answer3 + (inputValue % 10) // 7 -> 9
+        inputValue = parseInt(inputValue / 10) // 12 -> 1
+
+        answer3 = answer3 + (inputValue % 10) // 9 -> 10
+        inputValue = parseInt(inputValue / 10) // 1 -> 0
+
+        // 4번째 풀이 (안배운 reduce 사용)
+        inputValue.toString().split('').reduce((a, c) => a + parseInt(c), 0)
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>String 메서드</title>
+</head>
+
+<body>
+    <script>
+        let s = 'paullab CEO 이호준';
+        let ss = 'CTO 김창영';
+        let sss = 'paullab CEO 이호준 CTO 김창영 CTO 홍길동'
+
+        // replace
+        console.log(s.replace('CEO', 'CFO'));
+        console.log(sss.replace(/C[ET]O/g, '잡부'));
+
+        // replace - 정규표현식 사용 예시 //
+        const string = `hojun, lee
+gildong, hong
+hojung, choi
+junho, lee`
+
+        let result1 = string.replace(/(\w+), (\w+)/gm, "$1 $2");
+        console.log(result1);
+        let result2 = string.replace(/(\w+), (\w+)/gm, "$2 $1");
+        console.log(result2);
+        let result3 = string.replace(/(\w+), (\w+)/gm, "제 이름은 $2 제 성은 $1 입니다.");
+        console.log(result3);
+
+        //replaceAll
+        console.log(sss.replaceAll('CTO', '잡부'));
+
+        //includes
+        console.log(ss.includes('CTO')); // true
+        console.log(ss.includes('CEO')); // false
+
+        //메서드 체이닝 : 길어지면 가독성이 떨어지기 때문에 개행 해주기
+        sss
+            .replace('CEO', 'CFO')
+            .includes('CEO')
+            .toString()
+            .toUpperCase();
+
+        // split
+        console.log(s.split(' ')); // ['paullab', 'CEO', '이호준']
+        console.log('010-1234-5678'.split('-')); // ['010', '1234', '5678']
+        let text1 = 'aa bb cc dd'
+        let text2 = 'aa-bb-cc-dd'
+        let text3 = 'aa,bb,cc,dd'
+        let text4 = 'aa,bb-cc-dd'
+        // ['aa', 'bb', 'cc', 'dd']
+        console.log(text1.split(' '));
+        console.log(text2.split('-'));
+        console.log(text3.split(','));
+        console.log(text4.split(/[,-]/));
+
+        // trim
+        let text6 = '    aa bb cc dd    '
+        text6.trim() // 'aa bb cc dd'
+
+        // padStart 
+        let text7 = '123'
+        text7.padStart(5, '0'); // '00123'
+
+        // concat
+        text1.concat(text2); // 'aa bb cc ddaa-bb-cc-dd'
+
+        // 카카오 입사 문제 00101 -> '  # #'
+        let text8 = '101'
+        text8.padStart(5, '0').replaceAll('0', ' ').replaceAll('1', '#')
+
+
+
+    </script>
+</body>
+
+</html>

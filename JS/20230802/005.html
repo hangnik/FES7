@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Number 메서드</title>
+</head>
+
+<body>
+    <script>
+        // parseInt, parseFloat
+        parseInt("123"); // 123
+        parseInt("123.123"); // 123
+        parseInt("123px"); // 123
+        parseInt("px123"); // NaN
+        parseInt('     10'); // 10
+        parseFloat("123.123"); // 123.123
+        parseFloat("123.123px"); // 123.123
+        parseFloat("px123.123"); // NaN
+        parseInt('11', 2); // 3
+        parseInt('11', 10); // 11
+
+        // toString
+        let num = 3;
+        num.toString(); // '3'
+
+        // isNaN
+        // 문자열로 된 숫자도 false로 반환해주기 때문에 사용 권장X
+        // Number.isNaN 사용을 권장
+        isNaN(NaN); // true
+        isNaN(''); // false
+        isNaN('10') // false
+        isNaN('10px') // true
+        Number.isNaN('10px'); // false
+
+        // Math 내장객체 사용한 연산
+        Math.PI; // 3.141592653589793
+        Math.round(10.49); // 10, 반올림 
+        Math.round(10.77); // 11
+        Math.abs(-10); // 10, 절댓값
+        Math.pow(2, 3); // 8, 2의 3승
+        Math.pow(4, 0.5); // 2
+        Math.sqrt(16); // 4, 16의 제곱근
+        Math.random(); // 0 ~ 1 사이의 랜덤한 숫자
+        Math.ceil(10.1); // 11, 올림
+        Math.floor(10.9); // 10, 내림
+        Math.max(1, 2, 3, 4, 5); // 5
+        Math.min(1, 2, 3, 4, 5); // 1
+
+    </script>
+</body>
+
+</html>
