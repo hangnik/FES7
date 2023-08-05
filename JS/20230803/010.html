@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>신입사원이 자주 실수하는 코드</title>
+</head>
+
+<body>
+    <script src="a.js"></script>
+    <script src="b.js"></script>
+    <script>
+        test(); // 동일한 함수명이 있을 경우 뒤에 있는 코드로 덮어씌워짐
+        console.log(a); // 동일한 변수명을 사용할 경우 var는 에러X, let은 에러를 띄워줌
+    </script>
+</body>
+
+</html>
