@@ -30,6 +30,7 @@ button {
   font: inherit;
   border: 0;
   background: none;
+  padding: 0;
 }
 
 button:enabled {
@@ -41,8 +42,64 @@ li {
   list-style: none;
 }
 
+/* wrapper */
+.wrapper {
+  background-color: #f2f2f2;
+  max-width: 1060px;
+  margin: 0 auto;
+  padding: 31px 28px;
+  border-radius: 15px;
+  border: 2px solid #bdbdbd;
+}
+
+/* header */
+.header {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.header-title {
+  text-align: center;
+  font-size: 24px;
+  font-weight: 700;
+  padding: 10px 0 37px 0;
+}
+
+.nav {
+  width: 650px;
+  border-top: 2px solid #bdbdbd;
+}
+
+.nav-title {
+  max-width: 650px;
+  padding: 28px;
+  display: flex;
+  justify-content: center;
+  gap: 60px;
+}
+
+.nav-btn {
+  color: #828282;
+  font-size: 16px;
+}
+
+/* main */
+.main {
+  background-color: #fff;
+  padding: 26px 0;
+  border-radius: 15px;
+  border: 2px solid #bdbdbd;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 23px;
+}
+
 .cinema-card {
   width: 220px;
+  background-color: #fff;
   border-radius: 10px;
   border: 1px solid #bdbdbd;
   box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.3);
@@ -87,6 +144,16 @@ li {
   padding-left: 1.2em;
 }
 
+.cinema-info li {
+  /* display: inline-block; */
+}
+
+.cinema-info .content {
+  /* overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis; */
+}
+
 .btn-group {
   display: flex;
   border-top: 1px solid #bdbdbd;
@@ -127,5 +194,5 @@ li {
   background-repeat: no-repeat;
   background-size: contain;
   vertical-align: middle;
-  margin-right: 2px;
+  margin: 0 2px 2px 0;
 }
