@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>for문</title>
+</head>
+
+<body>
+    <script>
+        const cars = ["BMW", "Volvo", "Saab", "Ford", "Flat", "Audi"];
+
+        let text = "";
+
+        text += '<section><h2>' + cars[0] + '</h2></section>'
+        text += '<section><h2>' + cars[1] + '</h2></section>'
+        text += '<section><h2>' + cars[2] + '</h2></section>'
+        text += '<section><h2>' + cars[3] + '</h2></section>'
+        text += '<section><h2>' + cars[4] + '</h2></section>'
+
+        console.log(text)
+
+        // 위를 for문 사용하여 작성
+        const cars2 = ["BMW", "Volvo", "Saab", "Ford", "Flat", "Audi"];
+        let text2 = ''
+        for (let i = 0; i < cars2.length; i++) {
+            text2 += '<section><h2>' + cars2[i] + '</h2></section>'
+        }
+        document.body.innerHTML = text2;
+        document.write(text2);
+
+        // 구구단 출력
+        for (var i = 2; i < 10; i++) {
+            for (var j = 1; j < 10; j++) {
+                document.write(`${i} X ${j} = ${i * j} <br>`);
+            }
+        }
+    </script>
+</body>
+
+</html>
