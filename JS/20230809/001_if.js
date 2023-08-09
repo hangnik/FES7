@@ -1,7 +1,8 @@
-// if문
+// if문(statement)
 let x = 3;
 let y = 7;
 
+// x == y가 false이므로 else 안에 코드 실행
 if (x == y) {
   console.log("if문으로 실행되었습니다.");
 } else {

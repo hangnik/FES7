@@ -1,3 +1,6 @@
+// switch문
+//new Date().getDay() -> 표현식
+// 표현식과 case문의 값을 비교하여 같은 값일 경우 코드 실행
 switch (new Date().getDay()) {
   case 1:
     console.log("월요일입니다.");
@@ -21,7 +24,7 @@ switch (new Date().getDay()) {
 }
 
 let price = 0;
-let menu = "카페라떼"; // 메뉴를 바꿔보세요!
+let menu = "카페라떼";
 
 // break가 없으면 switch문을 탈출하지 않고 끝까지 모두 실행
 switch (menu) {
@@ -66,3 +69,4 @@ switch (true) {
   default:
     result = "강해져서 돌아와라";
 }
+// case 코드가 값을 비교하는 것이므로 boolean 반환 -> 표현식은 true!
