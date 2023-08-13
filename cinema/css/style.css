@@ -6,7 +6,8 @@ ul,
 li,
 p,
 h1,
-h2 {
+h2,
+h3 {
   margin: 0;
   padding: 0;
 }
@@ -17,7 +18,8 @@ img {
 
 h1,
 h2,
-h3 {
+h3,
+address {
   font: inherit;
 }
 
@@ -42,11 +44,22 @@ li {
   list-style: none;
 }
 
+.a11y-hidden {
+  clip: rect(1px, 1px, 1px, 1px);
+  clip-path: inset(50%);
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+}
+
 /* wrapper */
 .wrapper {
   background-color: #f2f2f2;
   max-width: 1060px;
-  margin: 0 auto;
+  margin: 135px auto;
   padding: 31px 28px;
   border-radius: 15px;
   border: 2px solid #bdbdbd;
@@ -130,8 +143,8 @@ li {
   font-size: 13px;
   display: flex;
   flex-wrap: wrap;
-  gap: 5px;
   justify-content: space-between;
+  gap: 5px;
 }
 
 .cinema-info .type {
@@ -195,4 +208,62 @@ li {
   background-size: contain;
   vertical-align: middle;
   margin: 0 2px 2px 0;
+}
+
+/* footer */
+.footer {
+  background-color: #f2f2f2;
+  padding: 53px 0 38px;
+}
+
+.max-width {
+  width: 1190px;
+  max-width: calc(100% - 100px);
+  margin: auto;
+}
+
+.footer-wrap {
+  display: flex;
+  justify-content: space-between;
+}
+
+.sns-wrap {
+  border-bottom: 1px solid #c4c4c4;
+  padding-bottom: 42px;
+}
+
+.corp-wrap {
+  padding-top: 36px;
+}
+
+.footer-title {
+  font-family: Roboto, sans-serif;
+  font-size: 22px;
+}
+
+.footer-list li,
+.corp-item h3,
+.corp-item address {
+  display: inline-block;
+}
+
+.link-icon {
+  margin-left: 22px;
+}
+
+.corp-item {
+  color: #4f4f4f;
+}
+
+.corp-item h3 {
+  font-weight: 700;
+}
+
+.corp-item + .corp-item::before {
+  content: "|";
+  margin: 0 2px;
+}
+
+.corp-wrap p {
+  font-weight: 700;
 }
