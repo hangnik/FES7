@@ -16,7 +16,8 @@
         function a() {
             console.log(this);
         }
-        // a();
+        // 어떤 객체의 메소드가 아닌 단독 호출되는 함수의 this는 전역공간을 참조한다.
+        a(); // window (브라우저 환경의 전역공간)
 
         const myObj = {
             val1: 100,
@@ -24,6 +25,10 @@
                 console.log(this);
             }
         }
+        myObj.func1(); // myObj 객체
+
+        let test = myObj.func1;
+        test(); // window
 
         const button1 = document.getElementById("btn1");
         const button2 = document.getElementById("btn2");
@@ -31,10 +36,7 @@
         button1.addEventListener('click', myObj.func1);
         button2.addEventListener('click', myObj.func1);
 
-        // let test = myObj.func1;
-        // test();
 
-        // myObj.func1();
     </script>
 </body>
 
