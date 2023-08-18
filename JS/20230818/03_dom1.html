@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM</title>
+</head>
+
+<body>
+    <ul>
+        <li class="item"><a href=""></a></li>
+        <li class="item" id="item2"><a href=""></a></li>
+        <li class="item"><a href=""></a></li>
+    </ul>
+
+    <script>
+        // DOM : HTML 문서를 객체화하여 모델링한 것
+
+        // DOM 트리에 접근하기
+        document.getElementById('item2');
+        document.getElementsByTagName('li'); // 배열 같은 객체 형태로 가져옴
+        document.getElementsByClassName('item'); // 배열 같은 객체 형태로 가져옴
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hero</title>
+</head>
+
+<body>
+    <script>
+        let jsonObj = {};
+        function xhrRequest() {
+            // 1. 통신을 위한 객체 생성
+            const requestObj = new XMLHttpRequest();
+
+            // 2. 통신 채널 열기
+            requestObj.open('GET', 'heros.json')
+
+            // 3. 객체 서버로 보내기
+            requestObj.send();
+
+            // 4. 응답을 받으면 통신 상태가 바뀌는데, 바뀐걸 감지하면 함수 실행
+            requestObj.onreadystatechange = () => {
+                // 4단계 : 통신 작업이 끝난 상태       // 200 : 클라이언트의 상태
+                if (requestObj.readyState === 4 && requestObj.status === 200) {
+                    // responseText에 응답이 담김 -> 객체로 변환
+                    jsonObj = JSON.parse(requestObj.responseText);
+                }
+            }
+        }
+    </script>
+</body>
+
+</html>

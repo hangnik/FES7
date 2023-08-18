@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM 실습</title>
+    <style>
+        .box {
+            margin: 0 auto;
+            width: 500px;
+            height: 500px;
+            background-color: black;
+        }
+
+        ul {
+            display: flex;
+            justify-content: center;
+            gap: 100px;
+        }
+
+        .red {
+            background-color: red;
+        }
+
+        .yellow {
+            background-color: yellow;
+        }
+
+        .green {
+            background-color: green;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrapper">
+        <div class="box"></div>
+        <ul>
+            <li><button class="btn-red">빨강</button></li>
+            <li><button class="btn-yellow">노랑</button></li>
+            <li><button class="btn-green">초록</button></li>
+        </ul>
+    </div>
+
+    <div class="wrapper">
+        <div class="box"></div>
+        <ul>
+            <li><button class="red">빨강</button></li>
+            <li><button class="yellow">노랑</button></li>
+            <li><button class="green">초록</button></li>
+        </ul>
+    </div>
+
+    <script>
+        const box = document.querySelector('.box');
+        const btn = document.querySelectorAll('[class^=btn]');
+
+        /* btn[0].addEventListener('click', function () {
+            if (box.classList.contains('yellow') || box.classList.contains('green')) {
+                box.classList.remove('yellow', 'green');
+            }
+            box.classList.add('red');
+        });
+
+        btn[1].addEventListener('click', function () {
+            if (box.classList.contains('red') || box.classList.contains('green')) {
+                box.classList.remove('red', 'green');
+            }
+            box.classList.add('yellow');
+        });
+
+        btn[2].addEventListener('click', function () {
+            if (box.classList.contains('yellow') || box.classList.contains('red')) {
+                box.classList.remove('yellow', 'red');
+            }
+            box.classList.add('green');
+        }); */
+
+        // 강사님 코드
+        // 방법 1
+        btn.forEach(itemBtn => {
+            itemBtn.addEventListener('click', () => {
+                box.classList.remove('red', 'yellow', 'green');
+                if (itemBtn.classList.contains('btn-red')) {
+                    box.classList.add('red');
+                } else if (itemBtn.classList.contains('btn-yellow')) {
+                    box.classList.add('yellow');
+                } else if (itemBtn.classList.contains('btn-green')) {
+                    box.classList.add('green');
+                }
+            })
+        })
+
+        // 방법 2
+        /* const btn2 = document.querySelectorAll('button');
+
+        btn2.forEach(itemBtn => {
+            itemBtn.addEventListener('click', () => {
+                box.className = 'box'; // box의 class를 box만 남기고 제거
+                box.classList.add(itemBtn.className); // btn의 클래스이름을 box에 추가
+            })
+        }) */
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+
+<body>
+    점심 식단
+    <article id="container">
+        <ul>
+            <li>탕수육</li>
+            <li class="item-second">유산슬</li>
+            <li>짜장면
+                <button>버튼</button>
+            </li>
+        </ul>
+    </article>
+    저녁 식단
+    <article>
+        <ul>
+            <li>된장국</li>
+            <li class="item-second">김치찌개</li>
+            <li>해장국</li>
+        </ul>
+    </article>
+
+    <script>
+        // 1번째 li 선택 (탕수육)
+        document.getElementsByTagName('li').item(0);
+        // 2번째 li 선택 (유산슬)
+        document.getElementsByClassName('item-second').item(0);
+
+        // 아래와 같이 탐색의 범위를 좁히고 찾아야 성능이 좋음
+        const container = document.getElementById('container');
+        const innerLis = container.getElementsByTagName('li'); // container의 li만 선택
+
+        // querySelector : css 선택자로 단일 요소 선택
+        const second = document.querySelector('.item-second');
+        // querySelectorAll : css 선택자로 여러 요소 선택
+        const secondAll = document.querySelectorAll('.item-second');
+
+        // CLICK EVENT 등록하기
+        const btn = document.querySelector('button');
+        btn.addEventListener('click', function () {
+            console.log('clicked!');
+            // 클래스 제어하기
+            btn.classList.add('blue'); // 버튼을 누르면 blue라는 클래스이름 추가
+            btn.classList.remove('blue'); // 클래스 제거
+            btn.classList.toggle('blue'); // 클래스가 없으면 넣어주고, 있으면 제거
+            btn.classList.contains('blue'); // 클래스가 있는지 확인. boolean 값으로 반환
+        })
+    </script>
+</body>
+
+</html>
