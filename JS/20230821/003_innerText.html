@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>innerText</title>
+    <style>
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- textContent와 innerText 비교 -->
+    <h3>원본 요소:</h3>
+    <p id="source">
+        <style>
+            #source {
+                color: red;
+            }
+        </style>
+        아래에서<br />이 글을<br />어떻게 인식하는지 살펴보세요.
+        <span style="display:none">숨겨진 글</span>
+    </p>
+    <h3>textContent 결과:</h3>
+    <textarea id="textContentOutput" rows="6" cols="30" readonly>...</textarea>
+    <h3>innerText 결과:</h3>
+    <textarea id="innerTextOutput" rows="6" cols="30" readonly>...</textarea>
+
+
+    <!-- 로그인 상태에 따라 숨겨야 하는 텍스트가 있는 경우 -->
+    <figure>
+        <img src="" alt="청바지 삼종 세트">
+        <figcaption>
+            상품 가격 : 29,000원
+            <span class="hidden">VIP 회원이라면 29,900원!</span>
+        </figcaption>
+    </figure>
+
+    <script>
+        // textContent와 innerText 비교 
+        const source = document.getElementById("source");
+        const textContentOutput = document.getElementById("textContentOutput");
+        const innerTextOutput = document.getElementById("innerTextOutput");
+
+        textContentOutput.innerHTML = source.textContent;
+        innerTextOutput.innerHTML = source.innerText;
+
+
+        // 로그인 상태에 따라 숨겨야 하는 텍스트가 있는 경우 
+        const cost = document.querySelector('figcaption');
+        console.log(cost.innerText);
+        console.log(cost.textContent);
+
+
+
+        // 결론 -----------------------------------------
+        // 그냥 텍스트만 추가하거나, 텍스트 값을 뽑아내고 싶을 떈 textContent
+        // HTML 문법을 인식하고, 텍스트를 추가할 땐 innerText (CSS는 일부 속성만 인식)
+        // 마크업 문법이 포함된 문자열을 추가할 땐 innerHTML
+
+        // 위와 같이 숨겨야하는 텍스트가 있는 경우 innerText를 사용하고, 기본적으로 textContent와 innerHTML를 사용하는게 좋다
+    </script>
+</body>
+
+</html>

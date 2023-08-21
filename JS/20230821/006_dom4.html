@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+
+<body>
+    <strong class="sayHi">
+        반갑습니다.
+    </strong>
+
+
+    <article class="cont">
+        <div class="cont">
+            <h1>안녕하세요 저는 이런 사람입니다.</h1>
+            <p>지금부터 자기소개 올리겠습니다</p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt incidunt voluptates laudantium fugit,
+            omnis
+            dolore itaque esse exercitationem quam culpa praesentium, quisquam repudiandae aut. Molestias qui quas ea
+            iure
+            officiis.
+            <strong>감사합니다!</strong>
+        </div>
+    </article>
+
+    <script>
+        const sayHi = document.querySelector('.sayHi');
+
+        // begin: 열린태그, end : 닫힌태그
+        sayHi.insertAdjacentHTML('beforebegin', '<span>안녕하세요!</span>');
+        sayHi.insertAdjacentHTML('afterbegin', '<span>ㅎㅎ</span>');
+        sayHi.insertAdjacentHTML('beforebegin', '<span>안녕히가세요</span>');
+        sayHi.insertAdjacentHTML('beforeend', '<span>ㅎㅎ</span>');
+
+
+        const container = document.querySelector('.cont');
+        console.log(container.firstElementChild); // 첫번째 자식 요소
+        console.log(container.firstChild); // article의 첫번째 노드는 공백!!
+        console.log(container.lastElementChild); // 마지막 자식 요소
+        console.log(container.lastChild); // 마지막 노드
+        console.log(container.nextElementSibling); // 다음 형제 요소
+        console.log(container.nextSibling); // 다음 형제 노드
+        console.log(container.previousElementSibling); // 이전 형제 요소
+        console.log(container.children); // 해당 요소의 자식들 (HTMLCollection)
+        console.log(container.parentElement); // 해당 요소의 부모
+
+        console.log(container.querySelector('strong').closest('.cont')); // 자기 자신부터 타고 올라가서 가장 가까운 cont 클래스를 찾음. 단, 형제 요소는 찾지 않음
+
+    </script>
+</body>
+
+</html>

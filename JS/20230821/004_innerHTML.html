@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+
+<body>
+    <p></p>
+    <input type="text" name="" id="">
+    <button>작동!</button>
+
+    <script>
+        const text = document.querySelector('p')
+        const inp = document.querySelector('input')
+        const btn = document.querySelector('button')
+
+        btn.addEventListener('click', () => {
+            // text.textContent = inp.value; // <img src='x' onerror='alert(1)'> => js 실행X
+            text.innerHTML = inp.value; // js 실행됨
+        });
+
+        // 사용자의 입력 값을 받을 때는 textContent로 받는게 안전!
+    </script>
+</body>
+
+</html>

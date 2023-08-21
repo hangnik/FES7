@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>요소 제어</title>
+</head>
+
+<body>
+    <div class="parent"></div>
+    <ul></ul>
+    <button>생산시작!</button>
+
+    <div id="parentElement">
+        <span id="childElement">hello guys~</span>
+    </div>
+
+    <script>
+        const text = document.createElement('p') // 가상요소 (메모리에만 존재)
+        const text2 = document.createElement('p');
+        const textInside = document.createTextNode('문장입니다'); // 메모리에만 존재하는 텍스트, 하나의 요소에만 사용할 수 있음
+        text.appendChild(textInside);
+        text2.appendChild(textInside);
+
+        const parent = document.querySelector('.parent');
+
+        parent.append('text입니다~', text, text2);
+
+        // parent.removeChild(text2);
+        // parent.remove(text, text2);
+
+        // for문으로 여러 노드 생성하기
+        const myBtn = document.querySelector("button");
+        const myUl = document.querySelector("ul");
+
+        myBtn.addEventListener('click', function () {
+            for (let i = 0; i < 5; i++) {
+                const myLi = document.createElement('li');
+                const btnDel = document.createElement('button');
+                const btnTxt = document.createTextNode = '버튼';
+
+                btnDel.append(btnTxt);
+                btnDel.addEventListener('click', () => {
+                    myLi.remove();
+                });
+                myLi.append('삭제하기: ', btnDel);
+                myUl.appendChild(myLi);
+            }
+        });
+
+        // insertBefore(target, location); target요소를 parentElement의 자식인 location 위치 앞으로 이동
+        const span = document.createElement("span");
+        const sibling = document.getElementById("childElement");
+        const parentDiv = document.getElementById("parentElement");
+        parentDiv.insertBefore(span, sibling);
+    </script>
+</body>
+
+</html>

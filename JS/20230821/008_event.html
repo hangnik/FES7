@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>event 객체</title>
+</head>
+
+<body>
+    <article class="parent">
+        <ol>
+            <li><button class="btn-first" type="button">버튼1</button></li>
+            <li><button type="button">버튼2</button></li>
+            <li><button type="button">버튼3</button></li>
+        </ol>
+    </article>
+
+    <script>
+        const btnFirst = document.querySelector('.btn-first');
+        // event : 이벤트와 관련된 모든 정보를 가지고 있는 매개변수
+        btnFirst.addEventListener('click', (event) => {
+            console.log(event);
+        }, true);
+        // true면 캡쳐링 이벤트, false면 버블링 이벤트
+        // 생략되어 있으면 버블링 이벤트
+    </script>
+</body>
+
+</html>

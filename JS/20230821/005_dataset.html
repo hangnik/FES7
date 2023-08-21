@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>dataset</title>
+</head>
+
+<body>
+    <ul>
+        <li>
+            <button data-name="redcola" data-cost="1000">
+                <img src="" alt="콜라이미지">
+                <span>redcola</span>
+                <strong>1000</strong>
+            </button>
+        </li>
+    </ul>
+
+    <!-- -------- -->
+    <img class="terran battle-cruiser" src="battle-cruiser.png" data-ship-id="324" data-weapons="laser"
+        data-health="400" data-mana="250" data-skill="yamato-cannon" />
+
+    <script>
+        const myImg = document.querySelector('.terran')
+        console.log(myImg.dataset); // {shipId: '324', weapons: 'laser', health: '400', mana: '250', skill: 'yamato-cannon'}
+        console.log(myImg.dataset.shipId); // 324
+
+        ////
+        const btn = document.querySelector('button');
+        btn.addEventListener('click', function () {
+            console.log(this.dataset.name, this.dataset.cost); // redcola 1000
+            console.log(this.querySelector('span').textContent); // redcola
+        });
+    </script>
+</body>
+
+</html>
