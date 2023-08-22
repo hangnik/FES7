@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+
+<body>
+    <script>
+        // 실습 : 음식 이름의 배열을 전달하면 배열안에서 랜덤하게 메뉴를 뽑아내는 로봇객체의 생성자를 만들어보세요.
+        function RobotFactory(foodNames) {
+            this.foodNames = foodNames;
+            /*  this.selectFood = function () {
+                 const num = Math.floor(Math.random() * foodNames.length);
+                 console.log(foodNames[num]);
+             } */
+        }
+
+        const robot = new RobotFactory(['청국장', '물냉면', '돔배고기']);
+        const robot2 = new RobotFactory(['청국장', '물냉면', '돔배고기']);
+
+        console.log(robot.selectFood === robot2.selectFood);  // false
+        // 똑같은 메서드인데 다른 함수를 생성하고 있기 때문에 이러한 자원 낭비를 해결하기 위해 등장한 것이 프로토타입
+
+        // 프로토타입 사용
+        // 모든 인스턴스가 동일한 함수를 참조하게 됨
+        RobotFactory.prototype.selectFood = function () {
+            const num = Math.floor(Math.random() * foodNames.length);
+            console.log(foodNames[num]);
+        }
+
+        const robot3 = new RobotFactory(['청국장', '물냉면', '돔배고기']);
+        const robot4 = new RobotFactory(['청국장', '물냉면', '돔배고기']);
+
+        console.log(robot3.selectFood === robot4.selectFood); // true
+    </script>
+</body>
+
+</html>

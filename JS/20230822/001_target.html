@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>target</title>
+</head>
+
+<body>
+    <article class="parent">
+        <ol>
+            <li><button class="btn-first" type="button">버튼1</button></li>
+            <li><button type="button">버튼2</button></li>
+            <li><button type="button">버튼3</button></li>
+        </ol>
+    </article>
+
+    <script>
+        const parent = document.querySelector('.parent');
+        parent.addEventListener('click', (event) => {
+            console.log(event.currentTarget); // 이벤트가 붙어있는 요소
+            console.log(this); // 이벤트가 붙어있는 요소
+            // currentTarget === this
+            // 단, 화살표함수일 경우는 window
+
+            console.log(event.target); // 이벤트가 발생하는 요소
+
+            // 이벤트 위임
+            if (event.target.nodeName === "BUTTON") {
+                event.target.textContent = "버튼4";
+            }
+        })
+
+        // this : myObj 객체
+        const myObj = {
+            name: 'jaehyun',
+            walk() {
+                parent.addEventListener('click', () => {
+                    console.log(this.name + 'is walking');
+                })
+            }
+        }
+    </script>
+</body>
+
+</html>

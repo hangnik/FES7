@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>preventDefalut 메서드</title>
+</head>
+
+<body>
+    <a href="https://www.naver.com" class="link">네이버 링크입니다만..</a>
+
+    <form action="">
+        <button type="submit" class="submit">제출</button>
+    </form>
+
+    <script>
+        /* 앵커 기본 동작 중지 */
+        const link = document.querySelector('.link');
+        link.addEventListener('click', (event) => {
+            console.log('click');
+            event.preventDefault();
+        });
+
+        /* submit 기본 동작 중지 */
+        const myForm = document.querySelector('form');
+        myForm.addEventListener('submit', (event) => {
+            console.log('submit');
+            event.preventDefault()
+        });;
+
+        // preventDefault() 언제 사용?
+        // SPA를 만들 때 새로고침을 막아야 하는 경우
+
+        /* 오른쪽 버튼 이벤트 막기 */
+        document.addEventListener('contextmenu', (event) => {
+            event.preventDefault();
+            alert('해당 페이지에서는 오른쪽 클릭을 제한합니다.');
+        })
+    </script>
+</body>
+
+</html>

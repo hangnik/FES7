@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>stopPropagation 메서드</title>
+</head>
+
+<body>
+    <form action="">
+        <button type="submit" class="submit">제출</button>
+    </form>
+
+    <script>
+        const btn = document.querySelector('button');
+        btn.addEventListener('click', (event) => {
+            console.log('click');
+            event.preventDefault(); // 기본 동작을 막아도 이벤트 전파를 막지는 못함
+            //event.stopPropagation(); // 이벤트 전파를 막아줌
+        });
+
+        document.body.addEventListener('click', () => {
+            console.log('event still alive');
+        }, true); // 캡처링 이벤트로 변경시 버블링 이벤트에서 전파를 막아도 소용없음
+    </script>
+</body>
+
+</html>
