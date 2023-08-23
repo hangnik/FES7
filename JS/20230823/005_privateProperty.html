@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+
+<body>
+    <script>
+        class Robot {
+            // private 프로퍼티 선언
+            #important
+
+            constructor(name, info) {
+                this.name = name;
+                this.#important = info;
+            }
+
+            sayYourName() {
+                console.log(`삐리비리. 제 이름은 ${this.name}입니다. 주인님.`);
+            }
+        }
+
+        const robot = new Robot('smith', '9877');
+
+        // private 프로퍼티 : 밖에서 접근도, 재할당도 불가능
+        // console.log(robot.#important); // 에러
+        robot.name // smith
+
+        class Robot2 {
+            #password
+
+            constructor(name, pw) {
+                this.name = name;
+                this.#password = pw;
+            }
+
+
+            sayYourName() {
+                console.log(`삐리비리. 제 이름은 ${this.name}입니다. 주인님.`);
+            }
+
+            // getter, setter로 값 제어하기
+            /* // getter : private도 값을 가져올 수 있음
+            getPassword() {
+                return this.#password
+            }
+
+            // setter : private도 값을 변경할 수 있음
+            setPassword(pw) {
+                this.#password = pw;
+            } */
+
+            // get, set 키워드로 값 제어하기
+            // 단, private 프로퍼티도 접근 가능하기 때문에 private 값은 사용하지 않아야 함
+            get password() {
+                return this.#password
+            };
+
+            set password(pw) {
+                this.#password = pw;
+            }
+        }
+
+        const robot2 = new Robot2('재현', 123123);
+        //console.log(robot2.getPassword()); // 123123
+        //console.log(robot2.setPassword(123456)); // 123456으로 변경
+
+        // get으로 생성 시 password 함수를 마치 프로퍼티처럼 접근할 수 있음
+        console.log(robot2.password); // 123123
+        // set도 마찬가지로 프로퍼티처럼 값을 할당할 수 있음
+        robot2.password = 456456;
+    </script>
+</body>
+
+</html>

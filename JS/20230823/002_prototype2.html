@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+
+<body>
+    <script>
+        const obj = {
+            name: 'test'
+        }
+
+        console.log(obj.hasOwnProperty('name')); // true
+
+        const arr = [1, 2, 3];
+
+        // 프로토타입 체이닝 : 상속받은 프로토타입을 찾아 올라갈 수 있음
+        // Array의 프로토타입은 Object의 프로토타입을 상속을 받고 있기 때문에 hasOwnProperty 메서드를 사용할 수 있음
+        console.log(arr.hasOwnProperty('name')); // false
+
+        console.log(Array.prototype.__proto__ === Object.prototype); // true
+        console.log(Number.prototype.__proto__ === Object.prototype); // true
+        console.log(String.prototype.__proto__ === Object.prototype); // true
+        console.log(Math.__proto__ === Object.prototype); // true
+
+        //-------------------------------------------
+        function Parent() {
+            this.name = '재현';
+        }
+        Parent.prototype.rename = function (name) {
+            this.name = name;
+        }
+        Parent.prototype.sayName = function () {
+            console.log(this.name);
+        }
+
+        function Child() {
+            Parent.call(this); // 생성자 함수의 this를 Child의 인스턴스로 바꿔준다
+            this.newName = '소울';
+        }
+
+        Child.prototype = Object.create(Parent.prototype); // Parent의 프로토타입을 가지는 새 객체를 생성해서 Child에 할당
+        // 즉, Parent의 프로토타입을 Child 프로토타입과 연결하는 것
+
+        Child.prototype.Hello = function () {
+            console.log('hello');
+        }
+
+        const child = new Child();
+    </script>
+</body>
+
+</html>

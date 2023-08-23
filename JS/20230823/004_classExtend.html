@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+
+<body>
+    <script>
+        class Robot {
+            constructor(name) {
+                this.name = name;
+            }
+
+            sayYourName() {
+                console.log(`제 이름은 ${this.name} 입니다. 삐리비리리비리`);
+            }
+        }
+
+        // 상속 : extends
+        class BabyRobot extends Robot {
+            constructor(name) {
+                super(name); // 부모의 프로퍼티를 super 키워드를 사용해서 대신 실행시킨다
+            }
+
+            sayBabyName() {
+                this.sayYourName(); // this를 통해 부모의 메서드에 접근할 수 있다
+            }
+        }
+
+        const robot = new Robot('하영');
+        const babyRobot = new BabyRobot('옹');
+
+        //----------------------------------------------------
+        // 실습 : 소시지를 만드는 클래스를 정의
+        class MakeSausage {
+            constructor(item1, item2) {
+                this.item1 = item1;
+                this.item2 = item2;
+            }
+
+            taste() {
+                console.log(`${this.item1}와 ${this.item2} 맛이 난다!`);
+            }
+        }
+
+        class FireSausage extends MakeSausage {
+            tasteFire() {
+                this.taste();
+                console.log('불 맛이 추가되었다!');
+            }
+
+            // 오버라이딩 : 부모의 메서드를 재정의
+            taste() {
+                console.log(`소세지에서 불 맛이 어우러진 ${this.item1}와 ${this.item2} 맛이 난다!`);
+            }
+
+            // 오버로딩 : 전달 인자에 따라 다른 결과를 처리하도록 만들어줌
+            // 하지만 다른 언어와 달리 자바스크립트에서는 인자를 달리 해도 똑같은 메서드
+            // 조건문을 사용하여 오버로딩과 비슷한 기능을 만들 수는 있음
+            taste(msg) {
+                if (msg) {
+                    console.log(
+                        `소세지에서 불맛이 어우러진 ${this.item1}와 ${this.item2}의 맛이 난다!! ${msg} 때문인것 같다!`
+                    );
+                } else {
+                    console.log(
+                        `소세지에서 불맛이 어우러진 ${this.item1}와 ${this.item2}의 맛이 난다!!`
+                    );
+                }
+            }
+
+        }
+
+        const fireSausage = new FireSausage('소고기', '파');
+
+
+    </script>
+</body>
+
+</html>

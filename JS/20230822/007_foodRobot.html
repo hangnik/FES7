@@ -25,8 +25,9 @@
         console.log(robot.selectFood === robot2.selectFood);  // false
         // 똑같은 메서드인데 다른 함수를 생성하고 있기 때문에 이러한 자원 낭비를 해결하기 위해 등장한 것이 프로토타입
 
-        // 프로토타입 사용
+        // 프로토타입 
         // 모든 인스턴스가 동일한 함수를 참조하게 됨
+        // 즉, 하나의 메서드를 공유하도록 만들어 더 효율적으로 사용하게 도와주는 것!
         RobotFactory.prototype.selectFood = function () {
             const num = Math.floor(Math.random() * foodNames.length);
             console.log(foodNames[num]);

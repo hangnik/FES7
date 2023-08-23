@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>prototype</title>
+</head>
+
+<body>
+    <script>
+        function NewFactory2(name) {
+            this.name = name;
+        }
+
+        NewFactory2.prototype.sayYourName = function () {
+            console.log(`삐리비리. 제 이름은 ${this.name}입니다. 주인님.`);
+        }
+
+        const robot = new NewFactory2('하영');
+
+        // prototype : 특정 객체에 대한 참조, 생성자 함수에 존재
+        // __proto__ : 생성자 함수의 prototype을 참조, 인스턴스에 존재
+        // __proto__를 통해 prototype에 접근하여 필요한 값과 메서드를 사용할 수 있다
+        console.log(robot.__proto__);
+        console.log(robot.__proto__ === NewFactory2.prototype); // true
+
+
+        // 객체를 생성자 함수를 통해 생성하기
+        const me = {
+            name: '한재현',
+            address: '제주도 제주시 인다 1길',
+            phoneNum: '010-8000-0000',
+            canWalk: function () {
+                console.log('재현이가 걷는다.');
+            },
+            teaching: function (student) {
+                student.levelUp();
+            }
+        }
+
+        const lion = {
+            level: 1,
+            levelUp: function () {
+                this.level++;
+            }
+        }
+        //---------------------------------------
+        function Me() {
+            this.address = '제주도 제주시 인다 1길';
+            this.phoneNum = '010-8000-0000';
+        }
+
+        // 프로퍼티도 prototype에 등록하여 공유할 수 있음
+        Me.prototype.name = '재현'
+
+        Me.prototype.canWalk = function () {
+            console.log('재현이가 걷는다');
+        }
+
+        Me.prototype.teaching = function (student) {
+            student.levelUp();
+        }
+
+        function Lion() {
+            this.level = 1;
+        }
+
+        Lion.prototype.levelUp = function () {
+            this.level++;
+        }
+
+        me.teaching(lion);
+    </script>
+</body>
+
+</html>

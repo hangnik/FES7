@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>class</title>
+</head>
+
+<body>
+    <script>
+        class Robot {
+            constructor(name) {
+                this.name = name;
+            }
+
+            sayYourName() {
+                console.log(`제 이름은 ${this.name} 입니다. 삐리비리리비리`);
+            }
+        }
+
+        const robot = new Robot('하영');
+
+        //-------------------------------------
+        // 생성자함수를 클래스 문법으로 바꾸기
+        /* function Me() {
+            this.address = '제주도 제주시 인다 1길';
+            this.phoneNum = '010-8000-0000';
+        }
+
+        Me.prototype.name = '재현'
+
+        Me.prototype.canWalk = function () {
+            console.log('재현이가 걷는다');
+        }
+
+        Me.prototype.teaching = function (student) {
+            student.levelUp();
+        }
+
+        function Lion() {
+            this.level = 1;
+        }
+
+        Lion.prototype.levelUp = function () {
+            this.level++;
+        } */
+
+        class Me {
+            constructor(name, address, phoneNum) {
+                this.name = name;
+                this.address = address;
+                this.phoneNum = phoneNum;
+            }
+
+            canWalk() {
+                console.log(`${this.name}이가 걷는다`);
+            }
+
+            teaching(student) {
+                student.levelUp();
+            }
+        }
+
+        class Lion {
+            constructor(level) {
+                this.level = level;
+            }
+
+            levelUp() {
+                this.level++;
+            }
+        }
+
+        const me = new Me('하영', '경기도 의정부', '010-1234-5678');
+        const lion = new Lion(1);
+    </script>
+</body>
+
+</html>
