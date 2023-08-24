@@ -1,0 +1,54 @@
+nav {
+  ul {
+    border: solid 1px black;
+    display: flex;
+    justify-content: space-between;
+
+    li {
+      &:first-child {
+        color: white;
+      }
+      &:nth-child(1) {
+        background-color: red;
+      }
+
+      &:nth-child(2) {
+        background-color: green;
+      }
+
+      &:nth-child(3) {
+        background-color: blue;
+      }
+      &:hover {
+        background-color: white;
+      }
+    }
+  }
+}
+
+// 연습2
+/* .box-1 {
+  background-color: red;
+}
+
+.box-2 {
+  background-color: green;
+}
+
+.box-3 {
+  background-color: blue;
+} */
+// & 이용해서 공통 클래스 명을 가진 선택자들을 중첩시킬 수 있음
+.box {
+  &-1 {
+    background-color: red;
+  }
+
+  &-2 {
+    background-color: green;
+  }
+
+  &-3 {
+    background-color: blue;
+  }
+}

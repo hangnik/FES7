@@ -1,0 +1,63 @@
+// for ($변수) from (시작) through(끝){
+//	// 반복할 내용
+// }
+
+@for $i from 1 through 5 {
+  .box-#{$i} {
+    width: 100px * $i;
+    height: 100px * $i;
+  }
+}
+
+@for $i from 1 through 4 {
+  .border-#{nth($test-array, $i)} {
+    border: 1px solid red;
+  }
+}
+
+// for문을 이용해 nth-선택자에게 각각의 image를 배경에 넣어준다.
+@for $i from 1 through 5 {
+  .photo-box:nth-child(#{$i}) {
+    background-image: url("../assets/phoster#{$i}.png");
+  }
+}
+
+// @each ($변수) in (리스트나 맵){
+//	// 반복할 내용
+// }
+$test-array: "top" "right" "bottom" "left";
+
+@each $position in $test-array {
+  .border-#{$position} {
+    border-#{$position}: 1px solid #000;
+  }
+}
+
+// 거의 사용하지 않음
+// @while 조건 {
+//     // 반복할 내용
+// }
+$info-font-size: 20px;
+
+@function mini($size) {
+  @while $size > 10 {
+    $size: $size - 1;
+  }
+
+  @return $size;
+}
+
+.test {
+  font-size: mini($info-font-size);
+}
+
+//////////
+$hojun: 10;
+@while $hojun > 1 {
+  $hojun: $hojun - 2;
+  .content-#{$hojun} {
+    width: 100px;
+    height: 100px;
+    background: red;
+  }
+}

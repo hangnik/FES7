@@ -1,0 +1,24 @@
+@charset "UTF-8";
+.add-icon {
+  background-image: url("./assets/arrow-right-solid.svg");
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: 14px 14px;
+}
+
+/* .box {
+  &:focus {
+  } // 가상선택자
+  &:hover {
+  }
+  &:active {
+  }
+  &:first-child {
+  }
+  &:nth-child(2) {
+  }
+  &::after {
+  } // 가상요소
+  &::before {
+  }
+} *//*# sourceMappingURL=003_nesting2.css.map */

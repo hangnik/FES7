@@ -1,0 +1,27 @@
+// 속성 네이스팅 : 콜론 사용
+.add-icon {
+  background : {
+    image: url("./assets/arrow-right-solid.svg");
+    position: center center;
+    repeat: no-repeat;
+    size: 14px 14px;
+  }
+}
+
+// &(ampersand) : 가상요소, 가상클래스, class나 id 셀렉터 등을 참조할 수 있다
+/* .box {
+  &:focus {
+  } // 가상선택자
+  &:hover {
+  }
+  &:active {
+  }
+  &:first-child {
+  }
+  &:nth-child(2) {
+  }
+  &::after {
+  } // 가상요소
+  &::before {
+  }
+} */

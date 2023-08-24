@@ -1,0 +1,55 @@
+// @content : 원하는 부분에 스타일을 추가하여 전달해준다
+// 실무에서는 의도가 명확한 곳에 사용한다
+
+@mixin sample {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 200px;
+  &:hover {
+    @content;
+  }
+}
+
+.one {
+  @include sample {
+    background-color: red;
+  }
+}
+
+.two {
+  @include sample {
+    background-color: blue;
+  }
+}
+
+// mixin 실무 사용 예제
+$url: "./assets/img/";
+
+@mixin thumb($total, $img, $type) {
+  @for $i from 1 through $total {
+    li:nth-child(#{$i}) .thumb {
+      background-image: url(#{$url} + #{$img} + #{$i} + '.' + #{$type});
+    }
+  }
+}
+
+@include thumb(10, "background", "png");
+
+@mixin circleBase {
+  display: block;
+  border-radius: 50%;
+  -ms-border-radius: 50%;
+  -webkit-border-radius: 50%;
+}
+
+@mixin circle($size, $color: null) {
+  @include circleBase;
+  width: $size;
+  height: $size;
+  background-color: $color;
+}
+
+.profile {
+  @include circle(100px, red);
+}

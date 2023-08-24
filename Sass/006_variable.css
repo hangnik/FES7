@@ -1,0 +1,61 @@
+.one {
+  font-size: 32px;
+}
+
+.two {
+  color: #000;
+}
+
+.three {
+  color: #fff;
+}
+
+.test {
+  background: url("./assets/img/background.png");
+}
+
+.title_list1 {
+  font-size: 40px;
+}
+
+.title_list2 {
+  font-size: 80px;
+}
+
+.title_list3 {
+  font-size: 50px;
+}
+
+.title_map1 {
+  font-size: 45px;
+}
+
+.title_map2 {
+  color: #f00;
+}
+
+.title_map3 {
+  color: 45px;
+}
+
+/* nav {
+  background-image: url("assets/img/background.png");
+}
+
+.home {
+  background-image: url("assets/img/icon_font_awesome_home.png");
+} */
+.nav {
+  background-image: url("assets/img/background.png");
+}
+
+.home {
+  background-image: url("assets/img/icon_font_awesone_home.png");
+}
+
+/* .title {
+  border-bottom: 1px solid black;
+} */
+.title .border-top {
+  border-bottom: 1px solid black;
+}/*# sourceMappingURL=006_variable.css.map */

@@ -1,0 +1,15 @@
+.one {
+  color: red;
+  .two {
+    color: green;
+    .three {
+      color: blue;
+
+      // four클래스를 밖으로 뺄 수 있음
+      // 해당 css를 다른 곳에서도 사용하고 싶을 때 사용 (거의 사용하지는 않음)
+      @at-root .four {
+        color: pink;
+      }
+    }
+  }
+}

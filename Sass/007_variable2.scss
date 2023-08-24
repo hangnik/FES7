@@ -1,0 +1,16 @@
+$font-p: 15px; // 전역변수
+
+.one {
+  // 지역변수 (권장X)
+  // !global : gloabal변수로 만들어줌 (권장X)
+  $value: red !global;
+  color: $value;
+
+  .three {
+    background-color: $value;
+  }
+}
+
+.two {
+  color: $value; // error
+}

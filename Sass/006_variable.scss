@@ -1,0 +1,126 @@
+// 변수 생성 : $ 기호 사용
+$hojun1: #000;
+$hojun2: #fff;
+$큰글자: 32px;
+
+.one {
+  font-size: $큰글자;
+}
+
+.two {
+  color: $hojun1;
+}
+
+.three {
+  color: $hojun2;
+}
+
+$img-path: "./assets/img/";
+$img-name: "background.png";
+
+.test {
+  background: url($img-path + $img-name);
+}
+
+//색상
+$red: #ee4444;
+$black: #222;
+$bg-color: #3e5e9e;
+$link-color: red;
+$p-color: #282a36;
+
+//폰트사이즈
+$font-p: 13px;
+$font-h1: 28px;
+
+//폰트
+$base-font: "Noto Sans KR", sans-serif;
+
+// lists
+$sizes: 40px, 50px, 80px;
+$valid-sides: top, bottom, left, right;
+
+//maps
+$font-sizes: (
+  "h1": 45px,
+  "h2": 19px,
+  "p": 16px,
+);
+$font-sizes-test: (
+  "one": #fff,
+  "two": #ff0,
+  "three": #f00,
+);
+
+// 1. lists
+// list 형태의 변수일 경우 1부터 시작
+.title_list1 {
+  font-size: nth($sizes, 1);
+}
+
+.title_list2 {
+  font-size: nth($sizes, -1);
+}
+
+// 이 문법은 자주 사용하지 않습니다.
+.title_list3 {
+  font-size: nth($list: $sizes, $n: 2);
+}
+
+// 2. map
+.title_map1 {
+  font-size: map-get($font-sizes, "h1");
+}
+
+.title_map2 {
+  color: map-get($font-sizes-test, "three");
+}
+
+// 이 문법은 자주 사용하지 않습니다.
+.title_map3 {
+  color: map-get($map: $font-sizes, $key: "h1");
+}
+
+//----------------------------------------------
+// 연습문제1. maps을 사용하여 아래와 같이 출력되도록 하세요.
+/* nav {
+  background-image: url("assets/img/background.png");
+}
+
+.home {
+  background-image: url("assets/img/icon_font_awesome_home.png");
+} */
+
+$path: "assets/img/";
+$maps: (
+  "back": "background",
+  "icon": "icon_font_awesone_home",
+);
+
+.nav {
+  background-image: url($path + map-get($maps, "back") + ".png");
+}
+
+.home {
+  background-image: url($path + map-get($maps, "icon") + ".png");
+}
+
+// 연습문제2. lists를 사용해서 아래와 같이 출력되도록 하세요.
+/* .title {
+  border-bottom: 1px solid black;
+} */
+
+$direction: top, bottom, left, right;
+
+// 이런 식으로 사방으로 만들 수 있습니다.
+// @each $dir in $direction {
+//     .title-#{$dir} {
+//         border-#{$dir}: 1px solid black;
+//     }
+// }
+
+.title {
+  .border-#{nth($direction, 1)} {
+    border-bottom: 1px solid black;
+  }
+}
