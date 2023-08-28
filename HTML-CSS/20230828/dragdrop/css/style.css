@@ -1,0 +1,91 @@
+@import url("https://fonts.googleapis.com/css2?family=Neonderthaw&family=Rubik+Puddles&display=swap");
+* {
+  padding: 0;
+  margin: 0;
+}
+
+ul,
+li {
+  list-style: none;
+}
+
+img {
+  vertical-align: top;
+}
+
+.a11y-hidden {
+  clip: rect(1px, 1px, 1px, 1px);
+  clip-path: inset(50%);
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: linear-gradient(45deg, rgb(241, 225, 74), rgb(146, 243, 170));
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  gap: 60px;
+}
+
+h1 {
+  font-weight: initial;
+  font-family: "Rubik Puddles", cursive;
+  color: green;
+  width: min-content;
+  font-size: 7rem;
+  text-align: center;
+  margin-top: -0.3em;
+}
+
+h1 span {
+  font-size: 0.7em;
+  color: whitesmoke;
+}
+
+section {
+  background: white;
+  width: 400px;
+}
+
+.drop-target {
+  padding: 20px;
+  box-shadow: 5px 5px 30px rgba(0, 0, 0, 0.2);
+}
+
+.drag-item {
+  border: 1px solid #ddd;
+  padding: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.drag-item p {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.drag-item img {
+  width: 48px;
+  height: 48px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.drag-item ~ li {
+  margin-top: 10px;
+}
