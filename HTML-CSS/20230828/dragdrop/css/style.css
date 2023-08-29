@@ -27,7 +27,7 @@ img {
 body {
   margin: 0;
   min-height: 100vh;
-  background: linear-gradient(45deg, rgb(241, 225, 74), rgb(146, 243, 170));
+  background: linear-gradient(45deg, rgb(241, 225, 74), rgb(162, 242, 245));
 
   display: flex;
   align-items: center;
@@ -84,8 +84,20 @@ section {
   height: 48px;
   object-fit: cover;
   border-radius: 50%;
+
+  /* 이미지 개별 drag가 안되도록 처리 */
+  pointer-events: none;
 }
 
 .drag-item ~ li {
   margin-top: 10px;
+}
+
+/* dragging */
+.drag-item.dragging {
+  border: 1px dashed #ccc;
+  background-color: #f5f5f5;
+}
+.drag-item.dragging > * {
+  opacity: 0.2;
 }
