@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM 조작</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+</head>
+
+<body>
+    <ul>
+        <li>list1</li>
+        <li>list2</li>
+        <li>list3</li>
+        <li>list4</li>
+    </ul>
+
+    <script>
+        // append : 마지막 자식으로 추가
+        // $("ul").append("<li>list추가</li>");
+        // $("<li>list추가</li>").appendTo("ul");
+
+        const ulEl = document.querySelector('ul');
+        const liEl = document.querySelector('li');
+
+        liEl.textContent = 'list 추가';
+        ulEl.appendChild(liEl);
+
+        // prepend : 첫번째 자식으로 추가
+        // $("ul").prepend("<li>list추가</li>");
+
+        ulEl.insertBefore(liEl, ulEl.firstChild);
+
+        // before : 앞에 형제 요소로 추가
+        // $("ul").before("<p>before</p>");
+
+        const pEl = document.createElement('p');
+        pEl.textContent = 'before';
+        ulEl.parentElement.insertBefore(pEl, ulEl);
+
+        // after : 뒤에 형제 요소로 추가
+        // $("ul").after("<p>after</p>");
+
+        const pEl2 = document.createElement('p');
+        pEl2.textContent = 'after';
+        ulEl.parentElement.appendChild(pEl2, ulEl);
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>each</title>
+</head>
+
+<body>
+    <p>안녕하세요</p>
+    <p>안녕하세요</p>
+    <p>안녕하세요</p>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+    <script>
+        // each : 배열 관리, for in과 같이 배열이나 객체의 요소를 검사
+        $(function () {
+            $("p").each(function () {
+                const originalContent = $(this).html()
+                $(this).html('✋' + originalContent);
+            })
+        });
+
+        // JS
+        document.querySelectorAll('p').forEach((element) => {
+            const originalContent = element.textContent;
+            element.textContent = '✋' + originalContent;
+        })
+    </script>
+</body>
+
+</html>

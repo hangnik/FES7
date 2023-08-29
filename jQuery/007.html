@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>attribute</title>
+</head>
+
+<body>
+    <label for="">
+        아이디
+        <input type="text" value="FES7">
+    </label>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+    <script>
+        // jQuery
+        console.log($('input').attr('type'));
+        console.log($('input').attr('value'));
+        console.log($('input').removeAttr('value'));
+
+        console.log($('input').addClass('class'));
+        console.log($('input').removeClass('class'));
+
+        //JS
+        // set, get, remove + Attribute
+        const inputText = document.querySelector("input");
+        console.log(inputText.getAttribute('type'));
+        console.log(inputText.getAttribute('value'));
+        inputText.removeAttribute('value');
+        inputText.setAttribute('placeholder', '입력해주세요!');
+
+        // class
+        console.log(inputText.classList);
+        inputText.classList.add('class1');
+        inputText.classList.remove('class1');
+        inputText.classList.toggle('class1');
+        console.log(inputText.classList.value);
+    </script>
+</body>
+
+</html>

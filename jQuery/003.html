@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery 필터</title>
+</head>
+
+<body>
+    <ol>
+        <li>hello <strong>world</strong></li>
+        <li class="item">hello world</li>
+        <li class="item">hello world</li>
+        <li><strong>hello</strong> world</li>
+        <li>hello world!</li>
+        <li>hello world!</li>
+        <li>hello world</li>
+        <li style="display: none;">hello world</li>
+        <li></li>
+    </ol>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+    <script>
+        // eq : 0부터 시작 
+        // li의 3번째 요소 선택
+        $('li').eq(3).css('color', 'blue');
+        //document.querySelector('li:nth-child(4)').style.color = 'blue';
+
+        // li의 3번째 요소 제외하고 선택
+        $('li').not(':eq(3)').css('text-decoration', 'underline');
+        /* document.querySelectorAll('li').forEach((el, i) => {
+            if (i != 3) el.style.textDecoration = 'underline';
+        }); */
+
+        // lt : less-than (0q부터 시작)
+        // li의 3번째 요소 아래만 선택
+        $('li:lt(3)').css('color', 'blue');
+
+        // gt : greater-than
+        // li의 5번째 요소 위만 선택
+        $("li:gt(5)").css("color", "red");
+
+        // class 속성이 있는 요소만 선택
+        $('[class]').css('border', '1px solid green');
+
+        // contains : 특정 텍스트가 들어있는 요소
+        // 느낌표가 있는 요소만 선택
+        $('li:contains("!")').css('background-color', 'skyblue');
+        /* document.querySelectorAll('li').forEach(el => {
+            if (el.textContent.includes('!')) {
+                el.style.backgroundColor = 'skyblue'
+            }
+        }); */
+
+        // empty : 컨텐츠가 비어있는 요소
+        $('li:empty').css('background-color', 'pink');
+        /* document.querySelectorAll('li').forEach(
+            (element) => {
+                if (!element.hasChildNodes())
+                    element.style.backgroundColor = "skyblue"
+            }
+        ); */
+
+        // has : 해당 element를 가진 요소
+        $('li:has("strong")').css('background-color', 'pink');
+
+        // hidden : 숨겨진 요소
+        $("li:hidden").show();
+    </script>
+</body>
+
+</html>

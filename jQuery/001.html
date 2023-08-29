@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+    <script>
+        // onload() : 브라우저가 DOM트리를 생성한 직후에 실행
+        /* $(document).ready(function () {
+
+        }); */
+        // 축약형
+        /* $(function () {
+
+        }); */
+    </script>
+</head>
+
+<body>
+    <p class="hello">안녕</p>
+    <p id="hello">안녕</p>
+
+    <header id="header">
+        <ul>
+            <li>안녕</li>
+            <li>안녕</li>
+        </ul>
+    </header>
+
+    <script>
+        $("p").hide();
+        $('p').show();
+
+        $('.hello').css('color', 'red');
+        $('#header ul li:first-child').css('color', 'red');
+
+        console.log($('p'));
+        console.log(document.querySelectorAll('p'))
+    </script>
+</body>
+
+</html>
