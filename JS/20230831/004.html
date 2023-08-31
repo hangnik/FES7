@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>garbage collection</title>
+</head>
+
+<body>
+    <script>
+        let me = { age: 30 };
+        let you = me;
+        // {age: 30}의 참조 카운트는 2
+
+        me = null;
+        // {age: 30}의 참조 카운트는 1
+
+        you = null;
+        // {age: 30}의 참조 카운트는 0
+
+        /////////////////////////////////////////
+
+        let x = {
+            y: {
+                z: 1
+            }
+        }
+        // x가 참조하는 객체를 obj1 / y가 참조하는 객체를 obj2
+
+        let a = x; // obj1 참조 카운트: 2 (x, a)
+        x = 1; // obj1 참조 카운트: 1(a)
+
+        let b = a.y; // obj2 참조 카운트: 2 (a.y, b) 
+        a = 2; // obj1의 참조 카운트: 0 / obj2 참조카운트: 1 (b)
+
+        // obj1은 아무도 참조하지 않지만, obj2가 참조하는 대상이 있어 사라지지 않음 => 메모리 누수
+        // but 최신 브라우저는 마크스위프 알고리즘을 사용하여 이런한 문제 해결됨
+
+        /////////////////////////////////////////
+
+        // 클로져의 경우 
+        function outer() {
+            let privateVal = ['test'];
+
+            function getPrivate() {
+                return parivateVal;
+            }
+
+            return getPrivate;
+        }
+
+        const getPrivete = outer();
+        const secretVal = getPrivete();
+
+        // 사용을 마친 secretVal은 나중에 null/undefined를 할당하여 클로져 공간과의 연결을 끊어야 함
+        secretVal = null;
+
+    </script>
+</body>
+
+</html>

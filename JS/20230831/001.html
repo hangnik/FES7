@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>requestAnimationFrame 실습</title>
+    <style>
+        div {
+            width: 100px;
+            height: 100px;
+            background-color: pink;
+            position: relative;
+            transform: translate();
+        }
+    </style>
+</head>
+
+<body>
+    <div></div>
+
+    <script>
+        const box = document.querySelector('div');
+        let x = 0;
+
+        // document.addEventListener('keydown', move);
+
+        /* function move(e) {
+            if (e.key === "ArrowRight") {
+                x += 5;
+                box.style.transform = `translate(${x}px)`;
+            } else if (e.key === "ArrowLeft") {
+                x -= 5;
+                box.style.transform = `translate(${x}px)`;
+            }
+        } */
+
+        // requestAnimationFrame 사용
+        let keys = ''
+
+        function move(e) {
+            keys = e.key;
+        }
+
+        function stop() {
+            keys = '';
+        }
+
+        document.addEventListener("keydown", move);
+        document.addEventListener('keyup', stop);
+
+        function play() {
+            switch (keys) {
+                case "ArrowRight":
+                    x += 5;
+                    box.style.transform = `translate(${x}px)`;
+                    break;
+                case "ArrowLeft":
+                    x -= 5;
+                    box.style.transform = `translate(${x}px)`;
+                    break;
+            }
+            requestAnimationFrame(play);
+        }
+
+        requestAnimationFrame(play);
+    </script>
+</body>
+
+</html>

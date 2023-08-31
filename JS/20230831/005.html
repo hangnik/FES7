@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>좋은 습관</title>
+</head>
+
+<body>
+    <script>
+        'use strict';
+
+        // 1. 배열이나 객체의 원본 데이터는 그대로 두고 새로운 배열로 만들기!
+        const aespa = ["카리나", "윈터", "지젤", "닝닝"];
+        // 결과 : ['카리나💖', '윈터💖', '지젤💖', '닝닝💖']
+
+        const aespa2 = aespa.map(item => {
+            return item + "💖";
+        });
+
+        // 2. 엄격모드 사용하기 => 'use strict' (맨 위에 적어줘야 함)
+        // 선언하지 않은 변수에 값을 할당할 수 없음
+        str = 'hello';
+
+        // 읽기 전용 객체에 값을 할당하면 안됨 => 에러를 내지 않고 무시함
+        var undefined = 'undefined';
+        Math.PI = 0;
+        var Infinity = 100;
+
+        // 지울 수 없는 값을 지우려고 하면 안됨
+        const employee = {
+            firstName: 'john',
+        }
+
+        delete employee.firstName;
+        delete Object.prototype; // 기존엔 에러를 내지 않고 무시함
+
+        // 함수의 매개변수 이름으로 중복된 이름을 사용할 수 없음
+        function myFunc(a, a, b) {
+            console.log(a + a + b);
+        }
+
+        myFunc(1, 2, 3); // 7 (a가 2로 재할당)
+
+        // 3. 일치연산자(===) 사용하기
+        1 == '1'; // true, 묵시적 형변환이 일어남
+        [] == false; // true
+        [] === false; // false (빈 배열은 truthy가 맞음)
+
+    </script>
+</body>
+
+</html>
