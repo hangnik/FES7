@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>XMLHttpRequest</title>
+</head>
+
+<body>
+    <button type="button">데이터 가져오기</button>
+    <p></p>
+    <script>
+        const btn = document.querySelector('button');
+        const pEl = document.querySelector('p');
+
+        //btn.addEventListener('click', xhrRequest);
+
+        let result;
+
+        function xhrRequest() {
+            const xhrObj = new XMLHttpRequest();
+            xhrObj.open('GET', './message.txt');
+
+            xhrObj.onreadystatechange = () => {
+                if (xhrObj.readyState === 4 && xhrObj.status === 200) {
+                    result = xhrObj.responseText;
+                    //pEl.textContent = result;
+
+                    console.log(result); // 값이 들어옴
+                }
+            };
+
+            xhrObj.send();
+        }
+
+        xhrRequest();
+        console.log(result); // undefined -> xhrRequest 함수가 실행되기 전에 먼저 찍힘
+        // 비동기 함수는 이처럼 순차적인 실행이 불가능함.
+    </script>
+</body>
+
+</html>

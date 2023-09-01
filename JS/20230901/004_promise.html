@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>promise 사용</title>
+</head>
+
+<body>
+    <script>
+        // promise는 객체를 반환하고, 객체를 생성하는 순간 콜백 함수 실행
+        // promise 생성자 함수는 resolve와 reject 메서드를 인자로 가짐.
+        const orderCoffee = new Promise((resolve, reject) => {
+            const requestObj = new XMLHttpRequest();
+
+            requestObj.open('GET', 'orderCoffee.txt');
+            requestObj.onreadystatechange = () => {
+
+                if (requestObj.readyState === 4) {
+                    if (requestObj.status === 200) {
+                        const result = requestObj.responseText;
+                        // resolve : 데이터 가져오기 성공 
+                        resolve(result);
+
+                    } else {
+                        // reject : 원하는 데이터를 못가져왔을 경우 (통신 실패)
+                        reject(new Error(`오늘의 커피 원두가 다 떨어졌습니다. ${requestObj.status}`));
+                    }
+                }
+            }
+            requestObj.send();
+        });
+
+        // resolve 함수가 실행되면 then이 실행됨. 즉, 통신에 성공해야 실행된다.
+        // resolve의 인자가 then의 인자로 전달됨.
+        orderCoffee.then((asyncResult) => {
+            console.log(asyncResult);
+
+            // reject 함수가 실행되면 catch가 실행됨. 즉, 통신 실패해야 실행된다.
+            // reject의 인자가 catch의 인자로 전달됨.
+        }).catch((error) => {
+            console.log(error)
+        })
+
+        console.log(orderCoffee); // 처음 실행하면 데이터를 다 가져오기 전에 콘솔이 실행되기 때문에 pending 상태로 뜸
+
+    </script>
+</body>
+
+</html>
