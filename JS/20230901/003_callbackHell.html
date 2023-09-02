@@ -77,14 +77,17 @@
         userStorage.searchUser(
             userName,
             password,
+            // searchUser onSuccess 콜백
             (name) => {
                 userStorage.sayHi(name,
                     (result) => {
                         alert(`당신에게 인사합니다! ${result.userName}님 ${result.greetings}`);
                     }, (error) => {
                         console.log(error);
-                    })
+                    });
             },
+
+            // searchUser onError 콜백
             (error) => {
                 console.log(error);
             });
