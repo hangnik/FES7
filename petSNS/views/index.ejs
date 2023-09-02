@@ -1,11 +1,92 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title><%= title %></title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-  </head>
-  <body>
-    <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
-  </body>
+
+<head>
+  <% include ./layout/header %>
+    <link rel="stylesheet" href="/stylesheets/index.css" />
+    <script src="/socket.io/socket.io.js"></script>
+</head>
+
+<body>
+  <% include ./layout/navbar %>
+    <div class="content_wrap">
+      <div class="content_scroll">
+        <% postList.forEach(e=> { %>
+          <div class="ui card" key="<%= e._id %>">
+            <div class="image">
+              <img class="post_image" src="<%= e.image %>" />
+            </div>
+            <div class="content">
+              <a href="/posts/<%= e._id %>" class="header">
+                <%= e.title %>
+              </a>
+              <div class="meta">
+                <span class="date">
+                  <%= e.user.username %>
+                    / <%= e.publishedDate %>
+                </span>
+              </div>
+              <div class="description">
+                <%= e.content %>
+              </div>
+            </div>
+            <div class="extra content">
+              <% if (e.likeUser.some((user)=> user ===
+                isAuthenticated.username)){ %>
+                <a class="heart-count checked" id="<%= e._id %>" key="<%= e._id %>">
+                  <i class="heart icon"></i>
+                  <span class="heart-like-count">
+                    <%= e.likeCount %>
+                  </span> likes
+                </a>
+                <% }else{ %>
+                  <a class="heart-count" id="<%= e._id %>" key="<%= e._id %>">
+                    <i class="heart icon"></i>
+                    <span class="heart-like-count">
+                      <%= e.likeCount %>
+                    </span> likes
+                  </a>
+                  <%} %>
+                    <a class="comment_button" id="<%= e._id %>" key="<%= e._id %>">
+                      <i class="comment icon"></i>
+                      comments
+                    </a>
+            </div>
+            <div class="content comment_wrap" id="comment_wrap_<%= e._id %>">
+              <div class="input_wrap">
+                <input key="<%= e._id %>" name="comment" class="comment_input" />
+              </div>
+              <div class="comment_body" id="comment_<%= e._id %>">
+                <% e.comment.reverse().forEach(comment=> { %>
+                  <div class="comment_body_item">
+                    <div style="font-weight: bolder">
+                      <%= comment.user.username %>
+                    </div>
+                    <div>
+                      <%= comment.comment %>
+                    </div>
+                  </div>
+                  <% }) %>
+              </div>
+            </div>
+          </div>
+          <% }) %>
+      </div>
+      <div>
+        <div class="chat_wrap">
+          <div class="chat_content">
+          </div>
+          <form id="chat_form">
+            <div style="width: 100%" class="ui action input">
+              <input class="chat_input" type="text" />
+              <button class="ui button">보내기</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <script>
+    </script>
+</body>
+
 </html>
