@@ -76,9 +76,11 @@
         userStorage.searchUser(userName, password)
             .then((result) => {
                 return userStorage.sayHi(result);
-            }).then((result) => {
+            })
+            .then((result) => {
                 alert(`당신에게 인사합니다! ${result.userName}님 ${result.greetings}`);
-            }).catch((errorMsg) => {
+            })
+            .catch((errorMsg) => {
                 console.error(errorMsg);
             })
     </script>

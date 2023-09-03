@@ -13,15 +13,16 @@
         // fecth : 바로 인자에 전달한 주소에 접근해 데이터를 다운받고, 다운이 완료되면 바로 fulfilled 상태의 프로미스가 반환됨. 
         // 따라서 따로 resolve 함수를 호출할 필요가 없다.
         fetch('https://mdn.github.io/learning-area/javascript/oojs/json/superheroes.json')
+            // response : 요청에 대한 종합적인 응답 정보가 저장되어 있는 객체
             .then((response) => {
                 // 통신에 실패할 경우 (서버 장애 등..)
-                // 이렇게 따로 예외처리를 하는 이유는, 실패를 해도 resolve 상태의 프로미스를 반환하기 때문!
+                // 이렇게 따로 예외처리를 하는 이유는, 실패를 해도 resolve 상태의 프로미스를 반환하기 때문! (원하는 데이터를 못받을 경우 고려)
                 if (!response.ok) {
                     // 에러를 던져줌
                     throw new Error(`HTTP ERROR!! STATE: ${response.status}`);
                 }
                 // json() : 응답받은 값(json 파일이 들어있는 response 객체)을 자바스크립트 객체를 값으로 가지는 프로미스 객체가 반환됨.  
-                // console.log(response.json()); // 프로미스 객체 안에 members 키를 가지는 Object 존재
+                console.log(response.json()); // 프로미스 객체 안에 members 키를 가지는 Object 존재
                 return response.json();
             })
             // json()을 통해 받은 자바스크립트 객체를 원하는 데이터로 추출

@@ -42,7 +42,9 @@
             // reject의 인자가 catch의 인자로 전달됨.
         }).catch((error) => {
             console.log(error)
-        })
+        });
+
+        // then이나 catch를 호출하면 Promise객체를 반환하기 때문에 프로미스 체이닝이 가능하다.
 
         console.log(orderCoffee); // 처음 실행하면 데이터를 다 가져오기 전에 콘솔이 실행되기 때문에 pending 상태로 뜸
 
