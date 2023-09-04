@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>xhr을 fetch로 바꾸기</title>
+</head>
+
+<body>
+    <script>
+        'use strict';
+
+        class UserStorage {
+
+            async searchUser(userName, password) {
+                try {
+                    const response = await fetch('../20230901/users.json');
+
+                    if (!response.ok) {
+                        throw new Error('HTTP ERROR! : ', response.status);
+                    }
+
+                    // json은 프로미스 객체를 반환하기 때문에 비동기적으로 작동 -> 즉, await를 붙여줘야 함
+                    const data = await response.json();
+
+                    const result = data.user.find((item) => {
+                        return item.userName === userName && item.password === password;
+                    });
+
+                    // return result ? userName : null;
+                    // result값이 없으면 에러 던지기
+                    if (!result) {
+                        throw new Error('user not found');
+                    }
+                    // result값이 있으면 userName 반환
+                    return userName;
+
+                } catch (error) {
+                    console.error('유저를 찾는 도중에 에러가 발생했습니다. :', error);
+                    throw error;
+                };
+            }
+
+
+            async sayHi(user) {
+
+                try {
+                    const response = await fetch('../20230901/greetings.json');
+
+                    if (!response.ok) {
+                        throw new Error('HTTP ERROR! : ', response.status);
+                    }
+
+                    const data = await response.json();
+
+                    const result = data.greetings.find((item) => {
+                        return item.userName === user;
+                    });
+
+                    // return result ? result : null;
+                    if (!result) {
+                        throw new Error('no greetings');
+                    }
+                    return result;
+
+                } catch (error) {
+                    console.error('해당 유저는 인삿말이 없습니다. :', error);
+                    // throw로 에러를 던져줘야 다음 비동기 함수가 실행되지 않고 해당 에러만 뜸
+                    throw error;
+                }
+            }
+
+        }
+
+        const userStorage = new UserStorage();
+
+        const userName = prompt('이름을 입력하세요.');
+        const password = prompt('비밀번호를 입력하세요.');
+
+        async function sayHello() {
+
+            try {
+                // searchUser, user는 비동기 함수로 이루어져있기 때문에 await가 필요함
+                const result = await userStorage.searchUser(userName, password);
+                const user = await userStorage.sayHi(result);
+
+                alert(`당신에게 인사합니다! ${user.userName}님 ${user.greetings}`);
+
+            } catch (error) {
+                console.error(error);
+            }
+        }
+
+        sayHello();
+
+    </script>
+</body>
+
+</html>

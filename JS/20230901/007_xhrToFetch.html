@@ -50,7 +50,7 @@
                         })
                         .then((data) => {
                             const result = data.greetings.find((item) => {
-                                return item.userName === userName;
+                                return item.userName === user;
                             });
 
                             if (result) {

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>async await</title>
+</head>
+
+<body>
+    <script>
+        // await
+        // 비동기 코드를 동기적으로 만들어줌. 즉 코드의 실행 순서를 '확정'시켜줄 수 있다
+
+        async function message() {
+            // 아래 코드가 끝날때까지 기다림 -> hello에 뭔가 할당되면 그 다음 코드 실행
+            const hello = await new Promise((resolve) => {
+                setTimeout(() => {
+                    resolve('hello');
+                }, 100)
+            });
+
+            // 아래 코드가 끝날때까지 기다림
+            const world = await new Promise((resolve) => {
+                setTimeout(() => {
+                    resolve('world');
+                }, 100)
+            });
+            console.log(`${hello} ${world}`);
+        }
+
+        message();
+
+
+        // 위 코드를 Promise만 이용해서 작성
+        function message2() {
+            new Promise((resolve) => {
+                setTimeout(() => {
+                    resolve('hello')
+                }, 100)
+            })
+                .then((result) => {
+                    return new Promise((resolve) => {
+                        setTimeout(() => {
+                            resolve(result + ' world');
+                        }, 100)
+                    });
+                })
+                .then((message) => {
+                    console.log(message);
+                })
+        }
+
+        message2();
+
+        // 두가지 비동기 작업을 동시에 실행하고 싶을 경우
+        // Primise.all : 결과값을 배열로 받음
+        async function message3() {
+
+            const [hello, world] = await Promise.all([
+                new Promise((resolve) => {
+                    setTimeout(() => {
+                        resolve('hello');
+                    }, 100)
+                }),
+                new Promise((resolve) => {
+                    setTimeout(() => {
+                        resolve('world');
+                    }, 100)
+                })
+            ])
+            console.log(`${hello} ${world}`)
+        }
+
+        message3();
+
+
+    </script>
+</body>
+
+</html>
