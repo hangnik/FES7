@@ -94,7 +94,7 @@
                 if (!result) {
                     throw new Error('no greetings');
                 }
-
+                console.log(result);
                 alert(`당신에게 인사합니다! ${result.userName}님 ${result.greetings}`);
             })
             .catch((errorMsg) => {
