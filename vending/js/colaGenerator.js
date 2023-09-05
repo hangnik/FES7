@@ -1,13 +1,15 @@
 class ColaGenerator {
   constructor() {
-    this.itemList = document.querySelector(".sell-list-ul");
+    this.itemList = document.querySelector(".cola-list");
   }
 
+  // 콜라 객체를 초기화
   async setUp() {
     const response = await this.loadData();
     this.colaFactory(response);
   }
 
+  // 콜라 관련 데이터 로드
   async loadData() {
     try {
       const response = await fetch("./items.json");
@@ -21,24 +23,25 @@ class ColaGenerator {
     }
   }
 
+  // 콜라 종류 템플릿 코드
   colaFactory(data) {
     const docFrag = new DocumentFragment();
     data.forEach((el) => {
       const item = document.createElement("li");
-      const itemTemplate = `<button class="cola-btn on">
-                        <img src="./img/cola-original.png" alt="오리지널 콜라">
-                        <span class="cola-name">Original_Cola</span>
-                        <strong class="cola-price">1000원</strong>
-                    </button>`;
+      const itemTemplate = `
+        <button type="button" class="btn-cola" data-item="${el.name}" data-count="${el.count}" data-price="${el.cost}" data-img="${el.img}">
+            <img src="./img/${el.img}" alt="${el.name}" />
+            <span class="cola-name">${el.name}</span>
+            <strong class="cola-price">${el.cost}원</strong>
+        </button>
+        `;
       item.innerHTML = itemTemplate;
       docFrag.append(item);
     });
+
     this.itemList.append(docFrag);
   }
 }
-
-const colaGenerator = new ColaGenerator();
-colaGenerator.loadData();
 
 // colaGenerator class 하나만 밖으로 빼줌
 export default ColaGenerator;

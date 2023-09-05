@@ -1,47 +1,45 @@
-@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&display=swap");
-
+/* reset ---------------------- */
 body,
-p,
 h1,
 h2,
-button,
+p,
 ul,
-li {
-  margin: initial;
-  padding: initial;
-  font-family: "Noto Sans KR", sans-serif;
+button {
+  padding: 0;
+  margin: 0;
 }
 
-body {
-  background: #eae8fe;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font: inherit;
 }
 
 ul,
 li {
   list-style: none;
 }
+input {
+  font: inherit;
+}
 
 button {
-  background: none;
-  border: initial;
   font: inherit;
+  border: 0;
+  background: none;
 }
 
 button:enabled {
   cursor: pointer;
 }
-
 img {
   vertical-align: top;
 }
 
-h1,
-h2,
-h3,
-strong {
-  font: inherit;
-}
-
+/* 공통 CSS */
 .a11y-hidden {
   clip: rect(1px, 1px, 1px, 1px);
   clip-path: inset(50%);
@@ -53,16 +51,96 @@ strong {
   position: absolute;
 }
 
-/* 헤더 */
+/* CSS 적용 */
+body {
+  background-color: #eae8fe;
+  font-family: "Noto Sans KR", sans-serif;
+}
+
+/* 제목 */
 h1 {
   text-align: center;
 }
-
 h1 img {
   max-width: 50%;
 }
 
-/* 기본버튼 */
+/* 메인 레이아웃 ---------------------- */
+main {
+  width: 748px;
+  max-width: 100%;
+  display: grid;
+}
+/* 749부터 적용하겠다. */
+@media (min-width: 749px) {
+  main {
+    grid-template-areas:
+      "section1 section2"
+      "section1 section3";
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: 50px auto;
+    gap: 20px 28px;
+    margin: 67px auto;
+  }
+}
+/* 768까지 적용하겠다. */
+@media (max-width: 748px) {
+  main {
+    grid-template-areas:
+      "section1"
+      "section2"
+      "section3";
+    margin: 18px auto;
+  }
+  body {
+    background-color: white;
+  }
+}
+
+.section1 {
+  grid-area: section1;
+  background-color: white;
+  padding: 30px 27px;
+}
+.section2 {
+  grid-area: section2;
+  background-color: white;
+  padding: 9px 27px;
+}
+.section3 {
+  grid-area: section3;
+  background-color: white;
+  padding: 25px 27px;
+
+  display: flex;
+  flex-direction: column;
+}
+.section3 .get-list {
+  flex-grow: 1;
+  flex-basis: 364px;
+}
+
+.section3 h2 {
+  text-align: center;
+  margin-bottom: 13px;
+}
+
+.total {
+  display: flex;
+  justify-content: end;
+  font-size: 12px;
+  text-align: right;
+  margin-top: 8px;
+}
+
+/* 판매 음료 */
+.cola-list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+
+/* 기본 버튼 */
 [class^="btn"] {
   width: 100%;
   background-color: white;
@@ -71,75 +149,44 @@ h1 img {
   font-size: 13px;
   box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.5);
 }
-
-/* 메인 */
-.main {
-  width: 748px;
-  max-width: 100%;
-  margin: 67px auto;
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  grid-template-rows: 50px auto;
-  grid-template-areas:
-    "sell fund"
-    "sell buy";
-  gap: 20px 28px;
-}
-
-/* 판매음료 */
-.sell-list {
-  grid-area: sell;
-  background: #fff;
-  padding: 30px 27px;
-}
-
-.sell-list-ul {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  justify-items: center;
-  gap: 12px;
-}
-
-.cola-btn {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 6px;
+.btn-cola {
   border-radius: 10px;
-  box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.5);
-  padding: 11px 11px 9px;
-  margin-bottom: 12px;
+  padding: 11px 12px 9px;
 }
-
-.cola-btn img {
-  width: 36px;
-}
-
-.cola-name {
-  color: #333;
-  font-size: 9px;
-}
-
+.btn-cola img,
+.cola-name,
 .cola-price {
-  border-radius: 50px;
-  background: #6327fe;
-  padding: 5px 15px;
-  color: #fff;
+  display: block;
+}
+.btn-cola img {
+  width: 36px;
+  margin: 0 auto;
+}
+.cola-name {
+  font-size: 9px;
+  margin: 6px 0;
+}
+.cola-price {
   font-size: 12px;
+  background-color: #6327fe;
+  color: white;
+  padding: 5px 0;
+  font-weight: normal;
+  border-radius: 30px;
 }
 
-/* 활성화된 버튼 */
-.cola-btn.on {
+/* 선택한 버튼 */
+.btn-cola:active {
   box-shadow: 0 0 0 4px #6327fe;
 }
 
 /* 품절된 버튼 */
-.cola-btn:disabled {
+.btn-cola:disabled {
   color: inherit;
   position: relative;
+  overflow: hidden;
 }
-
-.cola-btn:disabled::after {
+.btn-cola:disabled::after {
   content: "";
   display: block;
   width: 100%;
@@ -148,15 +195,14 @@ h1 img {
   position: absolute;
   top: 0;
   left: 0;
-  border-radius: 10px;
+  /* border-radius: 10px; */
 }
-
 .soldout {
   color: #eae8fe;
   font-size: 14px;
+
   z-index: 10;
   border: 4px double #eae8fe;
-  padding: 2px 8px;
   position: absolute;
   width: 45px;
   top: 50%;
@@ -164,129 +210,89 @@ h1 img {
   transform: translate(-50%, -50%) rotate(-18deg);
 }
 
-.sell-list-bottom {
+/* 잔액 */
+.bg-box {
+  background-color: #eae8fe;
+  height: 32px;
+  padding: 0 10px;
+  border-radius: 5px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  font-size: 14px;
+}
+
+#input-money {
+  border: 1px solid #bdbdbd;
+  height: 32px;
+  width: 100%;
+  padding: 6px;
+  box-sizing: border-box;
+  border-radius: 5px;
+}
+#input-money::placeholder {
+  color: #bdbdbd;
+  font-size: 13px;
+}
+
+.section2 .bg-box p {
+  font-weight: 700;
+}
+
+.get-list {
+  background-color: #eae8fe;
+  border: 1px solid #bdbdbd;
+  border-radius: 5px;
+  padding: 12px;
+
+  /* auto: 내용이 넘칠때만 스크롤이 생기도록함. */
+  overflow: auto;
+}
+.get-list li {
+  background-color: white;
+
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  height: 46px;
+  padding: 0 8px 0 10px;
+  border-radius: 5px;
+
+  font-size: 9px;
+}
+.get-list li ~ li {
+  margin-top: 6px;
+}
+.get-list li img {
+  width: 18px;
+}
+.get-list li strong {
+  /* margin: 0 0 0 auto; */
+  margin-left: auto;
+
+  width: 30px;
+  height: 30px;
+  border: 1px solid #bdbdbd;
+  border-radius: 5px;
+  font-size: 14px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-get {
+  background-color: #6327fe;
+  color: white;
+}
+
+.container {
   display: grid;
   grid-template-columns: auto calc((100% - (12px * 2)) / 3);
   grid-template-rows: 33px 33px 106px;
   gap: 12px;
   margin-top: 20px;
-}
-
-#input-money {
-  height: 32px;
-  padding: 6px;
-  border-radius: 5px;
-  border: 1px solid #bdbdbd;
-  box-sizing: border-box;
-}
-
-#input-money::placeholder {
-  font-size: 13px;
-  color: #bdbdbd;
-}
-
-.bg-box {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background: #eae8fe;
-  border-radius: 5px;
-  height: 32px;
-  padding: 0 10px;
-  font-size: 14px;
-}
-
-.add-list {
-  overflow: auto;
-  background: #eae8fe;
-  border-radius: 5px;
-  border: 1px solid #bdbdbd;
-}
-
-.add-list-ul {
-  margin: 12px;
-}
-
-.add-list-li {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  background: #fff;
-  padding: 0 8px 0 10px;
-  height: 46px;
-  margin-bottom: 6px;
-  border-radius: 5px;
-  font-size: 9px;
-  color: #333;
-}
-
-.add-list-li img {
-  width: 18px;
-}
-
-.add-list-li strong {
-  margin-left: auto;
-  border-radius: 5px;
-  border: 1px solid#BDBDBD;
-  padding: 6px 11px;
-  color: #000;
-}
-
-.add-btn {
-  background: #6327fe;
-  color: #fff;
-  font-size: 13px;
-  font-weight: 700;
-}
-
-/* 소지금 */
-.fund {
-  grid-area: fund;
-  background: #fff;
-  padding: 9px 27px;
-}
-
-.fund-box p {
-  font-weight: 700;
-}
-
-/* 획득한 음료 */
-.buy-list {
-  grid-area: buy;
-  background: #fff;
-  padding: 25px 27px;
-  display: flex;
-  flex-direction: column;
-}
-
-.buy-list .add-list {
-  flex-grow: 1;
-  flex-basis: 363px;
-}
-
-.buy-list h2 {
-  text-align: center;
-  margin-bottom: 14px;
-  font-weight: 700;
-}
-
-.total-price {
-  font-size: 12px;
-  text-align: right;
-  margin-top: 8px;
-}
-
-/* 반응형 미디어쿼리 */
-@media (max-width: 768px) {
-  body {
-    background-color: white;
-  }
-  .main {
-    grid-template:
-      "sell"
-      "fund"
-      "buy";
-    grid-template-columns: 100%;
-    margin: 18px auto;
-  }
 }
