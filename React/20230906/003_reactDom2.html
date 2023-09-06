@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JSX</title>
+</head>
+
+<body>
+    <div id="root" class="container">
+        <h1>hello react</h1>
+        <a href="https:www.test.com">test site</a>
+    </div>
+
+    <script>
+        // 실제로 리액트 내부에선 HTML을 객체로 관리
+        const tag = {
+            tag: "div",
+            props: {
+                id: 'root',
+                className: 'container',
+            },
+            children: [
+                {
+                    tag: "div",
+                    props: {
+                        id: 'root',
+                        className: 'container',
+                    },
+                    children: [
+                        {
+                            tag: "div",
+                            props: {
+                                id: 'root',
+                                className: 'container',
+                            },
+                            children: [
+
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+
+        // 실제 작동 과정
+        function helloVdom() {
+            return React.creatElement(
+                'h1',
+                { className: 'container' },
+                'hello',
+                React.creatElement(
+                    'i',
+                    null,
+                    'welcome!'
+                )
+            )
+        }
+
+        // JSX 사용
+        // JSX를 사용하면 위를 내부적으로 변환을 해줌
+        function helloJSX() {
+            return (
+                <h1 className="container">
+                    hello <i>welcome!</i>
+                </h1>
+            )
+        }
+    </script>
+</body>
+
+</html>

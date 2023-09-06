@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>나아가기 예제</title>
+    <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+</head>
+
+<body>
+    <div id="root">
+    </div>
+
+    <script type="text/babel">
+        function Header({ menuOne, menuTwo }) {
+            return (
+                <div>Header
+                    <div>menu</div>
+                    <div>{menuOne}</div>
+                    <div>{menuTwo}</div>
+                </div>
+            )
+        }
+
+        function 로그아웃() {
+            return <button>로그아웃</button>
+        }
+
+        function 로그인() {
+            return (
+                <div>
+                    <input type="text" />
+                    <input type="password" />
+                    <button>로그인</button>
+                </div>
+            )
+        }
+
+        const login = true;
+
+        const body = (
+            <div>
+                {/*Header('about', 'product')*/}
+                <Header menuOne="about" menu="product" />
+                {console.log('hello jsx')}
+                {1 + 1}
+                <br />
+                {'hello' + ' world'}
+                <h1>Hello!!</h1>
+                {login ? 'one' : 'two'}
+                {login ? <로그아웃 /> : <로그인 />}
+            </div>
+        );
+
+        const root = ReactDOM.createRoot(document.querySelector('#root'));
+        root.render(body);
+    </script>
+</body>
+
+</html>
