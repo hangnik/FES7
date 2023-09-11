@@ -1,0 +1,17 @@
+ul {
+  list-style: none;
+  padding: 0;
+  width: 300px;
+  margin: 20px auto;
+}
+
+.btn-mode {
+  border: none;
+  width: 300px;
+  padding: 20px;
+  margin-top: 10px;
+}
+
+.btn-mode:hover {
+  background-color: skyblue;
+}
