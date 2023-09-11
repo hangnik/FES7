@@ -3,29 +3,54 @@
 
 <head>
     <% include ./layout/header %>
-        <link rel='stylesheet' href='/stylesheets/auth.css' />
+        <link rel="stylesheet" href="/stylesheets/post.css" />
 </head>
 
 <body>
     <% include ./layout/navbar %>
-        <div class="wrap">
-            <div class="login_wrap">
-                <form action="/auth/login" method="POST">
-                    <div class="login ui input">
-                        <input name="username" type="text" placeholder="아이디">
-                    </div><br>
-                    <div class="login ui input" style="margin-top:10px;">
-                        <input name="password" type="password" placeholder="비밀번호">
-                    </div><br>
-                    <button type="submit" style="width:100%;margin-top:10px;" class="ui secondary button">
-                        로그인
-                    </button>
-                </form>
-                <button onclick="location.href='/auth/register'" style="width:100%;margin-top:10px;" class="ui button">
-                    회원가입
+        <div style="padding-top: 100px" class="container">
+            <form action="/posts" method="POST" id="identifier" enctype="multipart/form-data">
+                <input name="title" id="title" />
+                <textarea name="content" id="content"></textarea>
+                <div stylz="margin-top: 10px">
+                    <div class="image_upload">
+                        <div style="width: 300px" id="select_image">
+                            <div style="position: relative">
+                                <img style="object-fit: cover" for="imgInput" id="main_image" />
+                                <i class="image_icon huge images outline icon"></i>
+                            </div>
+                            <input style="display: none" type="file" name="image" id="imgInput" />
+                        </div>
+                    </div>
+                </div>
+                <button type="submit" style="width: 100%; margin-top: 10px" class="ui secondary button">
+                    글쓰기
                 </button>
-            </div>
+            </form>
         </div>
+        <script>
+            function readURL(input) {
+                if (input.files && input.files[0]) {
+                    var reader = new FileReader();
+                    reader.onload = function (e) {
+                        $("#main_image").attr("src", e.target.result);
+                        $("#main_image").css("height", "300px;");
+                        $(".image_icon").css("display", "none");
+                    };
+
+                    reader.readAsDataURL(input.files[0]);
+                }
+            }
+            $("#imgInput").change(function () {
+                readURL(this);
+            });
+
+            $("#main_image").click(function (e) {
+                console.log("Ee")
+                e.preventDefault();
+                $("#imgInput").click();
+            });
+        </script>
 </body>
 
 </html>
