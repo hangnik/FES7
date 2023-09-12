@@ -4,7 +4,7 @@ import "./App.css";
 import { useState } from "react";
 
 function App() {
-  const [currentMood, setCurrentMood] = useState("오늘의 기분");
+  const [currentMood, setCurrentMood] = useState("");
 
   return (
     <>

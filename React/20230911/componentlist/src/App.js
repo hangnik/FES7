@@ -7,6 +7,7 @@ import Time from "./Components/Time";
 import Login from "./Components/Login";
 import { useState } from "react";
 import Homepage from "./Components/Homepage";
+import Modal from "./Components/Modal";
 
 function App() {
   const user = {
@@ -16,6 +17,8 @@ function App() {
 
   // 로그인 상태를 판단하는 state
   const [login, setLogin] = useState(false);
+  // 모달 보여주기
+  const [modalShow, setModalShow] = useState(true);
 
   return (
     <div>
@@ -48,6 +51,7 @@ function App() {
       ) : (
         <Login infoUser={user} setLogin={setLogin} />
       )}
+      {modalShow && <Modal setModalShow={setModalShow} />}
     </div>
   );
 }
