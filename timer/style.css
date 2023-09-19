@@ -1,0 +1,137 @@
+@font-face {
+  font-family: "Pretendard-Regular";
+  src: url("https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff")
+    format("woff");
+  font-weight: 400;
+  font-style: normal;
+}
+
+body {
+  background: linear-gradient(90deg, #f0f4ff, #a5b6ee);
+  margin: 0;
+  font-family: "Pretendard-Regular";
+}
+
+h1,
+h2,
+h1,
+button {
+  font: inherit;
+}
+
+.a11y-hidden {
+  clip: rect(1px, 1px, 1px, 1px);
+  clip-path: inset(50%);
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+}
+
+.container {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.header img {
+  width: 244px;
+}
+
+.box {
+  width: 400px;
+  margin-top: 60px;
+  padding: 48px 0 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 16px;
+  background: linear-gradient(144deg, #5572bb 2.13%, #374b7c 102.97%);
+  box-shadow: 20px 20px 60px 10px rgba(55, 75, 124, 0.4);
+}
+
+.box-tit {
+  color: #fff;
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.line {
+  width: 312px;
+  height: 1px;
+  background: #5b75b4;
+}
+
+.input-box {
+  margin: 33px 0 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+}
+
+.input-box img {
+  padding-top: 15px;
+}
+
+.input-num {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+}
+
+.input-num label {
+  color: #a5b6ee;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.input-num input {
+  width: 80px;
+  height: 80px;
+  background: linear-gradient(144deg, #5572bb 2.13%, #374b7c 102.97%);
+  border: 1px solid #354971;
+  border-radius: 10px;
+}
+
+.input-num input,
+.input-num input::placeholder {
+  color: #fff;
+  text-align: center;
+  font-size: 40px;
+  font-weight: 700;
+}
+
+.btn {
+  width: 112px;
+  height: 48px;
+  border-radius: 50px;
+  position: relative;
+  color: #fff;
+  font-weight: 700;
+  border: none;
+}
+
+.btn:disabled {
+  color: #617199;
+  background: #324577;
+  box-shadow: 1px 1px 1px 0px rgba(0, 0, 0, 0.05) inset;
+}
+
+.footer {
+  margin-top: 60px;
+  color: #8596bf;
+  font-size: 14px;
+}

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>timer</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container">
+        <header class="header">
+            <h1 class="a11y-hidden">위니브</h1>
+            <img src="images/logo.svg" alt="위니브">
+        </header>
+        <main class="box">
+            <h2 class="box-tit">TIMER</h2>
+            <div class="line"></div>
+            <section class="input-box">
+                <div class="input-num">
+                    <label for="hrs">HRS</label>
+                    <input type="number" id="hrs" placeholder="00">
+                </div>
+                <img src="images/dot.svg" alt="">
+                <div class="input-num">
+                    <label for="min">MIN</label>
+                    <input type="number" id="min" placeholder="00">
+                </div>
+                <img src="images/dot.svg" alt="">
+                <div class="input-num">
+                    <label for="sec">SEC</label>
+                    <input type="number" id="sec" placeholder="00">
+                </div>
+            </section>
+            <div>
+                <button type="button" class="btn btn-start" disabled>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="17" viewBox="0 0 16 17" fill="none">
+                        <path
+                            d="M4 14.9635V2.03645C4 1.20576 4.95414 0.737243 5.61145 1.24516L13.976 7.70867C14.4941 8.109 14.4941 8.89091 13.976 9.29124L5.61145 15.7547C4.95414 16.2627 4 15.7941 4 14.9635Z"
+                            fill="#617199" />
+                    </svg>
+                    START</button>
+                <button type="button" class="btn btn-reset" disabled>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 17 17" fill="none">
+                        <g clip-path="url(#clip0_2499_51)">
+                            <path
+                                d="M2.24 1.49995V5.92101M2.24 5.92101H6.66106M2.24 5.92101L4.18551 4.17518C5.2031 3.15939 6.52327 2.50179 7.94712 2.30148C9.37096 2.10117 10.8213 2.36899 12.0797 3.06459C13.3381 3.76019 14.3363 4.84589 14.924 6.1581C15.5116 7.47031 15.6569 8.93794 15.3378 10.3399C15.0188 11.7418 14.2527 13.0021 13.1551 13.9308C12.0574 14.8595 10.6877 15.4064 9.25218 15.489C7.81669 15.5716 6.39323 15.1855 5.19627 14.3888C3.99932 13.5922 3.09372 12.4281 2.61592 11.072"
+                                stroke="#617199" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                        </g>
+                        <defs>
+                            <clipPath id="clip0_2499_51">
+                                <rect width="16" height="16" fill="white" transform="translate(0.500002 0.499954)" />
+                            </clipPath>
+                        </defs>
+                    </svg>
+                    RESET</button>
+            </div>
+        </main>
+        <footer class="footer">ⓒ WENIV Corp.</footer>
+    </div>
+</body>
+
+</html>
