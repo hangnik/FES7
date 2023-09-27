@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/redux/4.2.1/redux.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Anek+Malayalam:wght@300&family=Fascinate&family=Kdam+Thmor+Pro&family=Noto+Sans+KR:wght@300&family=Open+Sans&family=Roboto:wght@300&display=swap"
+        rel="stylesheet">
+    <style>
+        .container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+            padding: 10px;
+            border: 5px solid black;
+        }
+
+        .item {
+            border: 5px solid orange;
+            height: 100px;
+            padding: 20px;
+            font-size: 32px;
+        }
+
+        .item:nth-child(1) {
+            font-family: 'Anek Malayalam', sans-serif;
+        }
+
+        .item:nth-child(2) {
+            font-family: 'Fascinate', sans-serif;
+        }
+
+        .item:nth-child(3) {
+            font-family: 'Thmor Pro', sans-serif;
+        }
+
+        .item:nth-child(4) {
+            font-family: 'Noto Sans KR', sans-serif;
+        }
+
+        .item:nth-child(5) {
+            font-family: 'Open Sans', sans-serif;
+        }
+
+        .item:nth-child(6) {
+            font-family: 'Roboto', sans-serif;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 텍스트를 입력받는 텍스트 -->
+    <input type="text" id="inputText">
+
+    // type을 제외한 나머지 속성 : 페이로드 (payload)
+    <input type="button" value="눌러주세요"
+        onclick="store.dispatch({type: 'TEXT', text: document.querySelector('#inputText').value})">
+    <input type="button" value="rounded" onclick="store.dispatch({type: 'STYLE_BORDER', borderRadius: '10px'})">
+    <input type="button" value="Circle" onclick="store.dispatch({type: 'STYLE_BORDER', borderRadius: '30px'})">
+    <input type="button" value="Rect" onclick="store.dispatch({type: 'STYLE_BORDER', borderRadius: '0px'})">
+    <input type="button" value="Red" onclick="store.dispatch({type: 'STYLE_BORDER_COLOR', border: '5px solid red'})">
+    <input type="button" value="Green"
+        onclick="store.dispatch({type: 'STYLE_BORDER_COLOR', border: '5px solid green'})">
+    <input type="button" value="Blue" onclick="store.dispatch({type: 'STYLE_BORDER_COLOR', border: '5px solid blue'})">
+
+    <div class="container">
+        <!-- <div id="item1" class="item"></div>
+        <div id="item2" class="item"></div>
+        <div id="item3" class="item"></div>
+        <div id="item4" class="item"></div>
+        <div id="item5" class="item"></div>
+        <div id="item6" class="item"></div> -->
+    </div>
+
+    <script>
+        const container = document.querySelector('.container');
+
+        // reducer는 state와 action을 전달받음
+        // reducer가 반환하는 값이 state의 값이 된다.
+        function reducer(state, action) {
+            // 기존의 container HTML 초기화
+            container.innerHTML = '';
+            if (state === undefined) {
+                return {
+                    text: 'hello',
+                    color: 'black',
+                    border: '5px solid orange',
+                    borderRadius: '0px'
+                }
+            } else if (action.type === 'TEXT') {
+                return {
+                    // state 값을 변경하지 않고 복사해서 써야 원본 데이터를 보존하고, 타임트래블링 기술을 쓸 수 있음
+                    ...state,
+                    text: action.text
+                }
+            } else if (action.type === 'STYLE_BORDER') {
+                return {
+                    ...state,
+                    borderRadius: action.borderRadius
+                }
+            } else if (action.type === 'STYLE_BORDER_COLOR') {
+                return {
+                    ...state,
+                    border: action.border
+                }
+            }
+        }
+
+        // store는 상태를 저장하는 저장소 -> reducer를 전달받음
+        const store = Redux.createStore(reducer, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()); // redux dev tools를 사용하기 위한 코드
+
+        // render 함수 : state의 값을 가져온다
+        function item1() {
+            const state = store.getState();
+            const template = `<div id="item1" class="item" style="border-radius: ${state.borderRadius}; border: ${state.border}">${state.text}</div>`
+
+            container.innerHTML += template;
+        }
+        // 렌더 함수를 구독시킴 -> 그래야 상태가 변경됐다고 dispatch에 전달해줌
+        store.subscribe(item1);
+        item1();
+
+        function item2() {
+            const state = store.getState();
+            const template = `<div id="item2" class="item" style="border-radius: ${state.borderRadius}; border: ${state.border}">${state.text}</div>`
+
+            container.innerHTML += template;
+        }
+        store.subscribe(item2);
+        item2();
+
+        function item3() {
+            const state = store.getState();
+            const template = `<div id="item3" class="item" style="border-radius: ${state.borderRadius}; border: ${state.border}">${state.text}</div>`
+
+            container.innerHTML += template;
+        }
+        store.subscribe(item3);
+        item3();
+
+        function item4() {
+            const state = store.getState();
+            const template = `<div id="item4" class="item" style="border-radius: ${state.borderRadius}; border: ${state.border}">${state.text}</div>`
+
+            container.innerHTML += template;
+        }
+        store.subscribe(item4);
+        item4();
+
+        function item5() {
+            const state = store.getState();
+            const template = `<div id="item5" class="item" style="border-radius: ${state.borderRadius}; border: ${state.border}">${state.text}</div>`
+
+            container.innerHTML += template;
+        }
+        store.subscribe(item5);
+        item5();
+
+        function item6() {
+            const state = store.getState();
+            const template = `<div id="item6" class="item" style="border-radius: ${state.borderRadius}; border: ${state.border}">${state.text}</div>`
+
+            container.innerHTML += template;
+        }
+
+        store.subscribe(item6);
+        item6();
+    </script>
+</body>
+
+</html>
