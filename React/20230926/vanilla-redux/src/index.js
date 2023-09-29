@@ -17,49 +17,34 @@ const totalPrice = document.getElementById("total"); // 페이지 하단에 총 
 
 const PRICE = 17500;
 
+// store 생성하기
 const store = createStore(countReducer);
 
+// reducer 함수 -> 매개변수에서 state 바로 초기화해줄 수 있음
 function countReducer(state = 0, action) {
+  // if-else보다 직관적인 switch문 사용
   switch (action.type) {
     case "ADD":
       return state + 1;
-    case "SUBSTRACT":
+    case "SUBTRACT":
       return state - 1;
     default:
       return state;
   }
 }
 
-// let count = 0;
-
-// UI Update - text
-/* const updateResult = (c) => {
-    number.innerText = count;
-    quantity.innerHTML = c;
-    totalPrice.innerHTML = c * PRICE;
-}; */
-
-// State Change
+// action 함수
+// dispatch를 이용하여 reducer에게 action을 넘겨줌
 const addNumber = () => {
-  /*  count += 1;
-    minus.disabled = false;
-    updateResult(count); */
   store.dispatch({ type: "ADD" });
 };
 
-// State Change
-const substractNumber = () => {
-  /* count -= 1;
-    plus.disabled = false;
-    updateResult(count); */
-  store.dispatch({ type: "SUBSTRACT" });
+const subtractNumber = () => {
+  store.dispatch({ type: "SUBTRACT" });
 };
 
-// Init
-//number.textContent = count;
-//updateResult(count);
-
-// render 함수
+// subscribe 함수
+// render 함수를 감지하고 있다가 state 값이 바뀌면 실행
 const handleWrite = () => {
   number.textContent = store.getState();
   quantity.textContent = store.getState();
@@ -70,4 +55,4 @@ store.subscribe(handleWrite);
 
 // Event
 plus.addEventListener("click", addNumber);
-minus.addEventListener("click", substractNumber);
+minus.addEventListener("click", subtractNumber);
