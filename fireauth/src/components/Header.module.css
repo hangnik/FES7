@@ -1,0 +1,22 @@
+/* header */
+.header {
+  background-color: #fff;
+}
+
+.max-width {
+  width: 1284px;
+  /* 1284px보다 커지면 부모를 넘지 않고 좌우 여백 30px */
+  max-width: calc(100% - 60px);
+  margin: auto;
+}
+
+.header .max-width {
+  height: 120px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header h1 {
+  width: 156px;
+}
