@@ -1,9 +1,11 @@
+import { useLogin } from "../../hooks/useLogin";
 import styles from "./Login.module.css";
 import { useState } from "react";
 
 export default function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const { error, isPending, login } = useLogin();
 
   const handleData = (event) => {
     if (event.target.type === "email") {
@@ -16,6 +18,7 @@ export default function Login() {
   const handleSubmit = (event) => {
     event.preventDefault();
     console.log(email, password);
+    login(email, password);
   };
 
   return (
@@ -28,7 +31,7 @@ export default function Login() {
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
           >
-            <g clip-path="url(#clip0_73192_4246)">
+            <g clipPath="url(#clip0_73192_4246)">
               <path
                 d="M131.504 48.336C131.589 48.144 131.781 48.048 132.08 48.048C132.421 48.048 132.624 48.144 132.688 48.336C132.773 48.528 132.891 51.3654 133.04 56.848C133.125 60.176 133.157 62.3947 133.136 63.504C133.136 64.6134 133.072 65.232 132.944 65.36C132.709 65.5947 132.475 65.6587 132.24 65.552C132.155 65.5307 132.091 65.424 132.048 65.232C132.005 65.04 131.963 64.656 131.92 64.08C131.877 63.504 131.845 62.7894 131.824 61.936C131.803 61.0614 131.771 59.856 131.728 58.32C131.6 53.2214 131.525 50.4267 131.504 49.936C131.44 49.0614 131.44 48.528 131.504 48.336ZM120.912 53.872C122.427 53.1467 123.429 52.816 123.92 52.88L124.656 52.944L124.624 55.568C124.581 56.848 124.475 58.2774 124.304 59.856C124.155 61.4347 124.016 62.4587 123.888 62.928C123.803 63.1627 123.6 63.312 123.28 63.376C122.981 63.4187 122.779 63.344 122.672 63.152C122.544 62.96 122.619 62.3307 122.896 61.264C123.088 60.4534 123.227 59.1947 123.312 57.488C123.419 55.7814 123.397 54.8427 123.248 54.672C123.099 54.544 122.501 54.6827 121.456 55.088C120.475 55.408 119.803 55.5894 119.44 55.632C119.077 55.6534 118.864 55.5467 118.8 55.312C118.779 55.1627 118.928 54.9814 119.248 54.768C119.589 54.5334 120.144 54.2347 120.912 53.872Z"
                 fill="#29363D"
@@ -62,93 +65,93 @@ export default function Login() {
                 fill="#29363D"
               />
               <path
-                fill-rule="evenodd"
-                clip-rule="evenodd"
+                fillRule="evenodd"
+                clipRule="evenodd"
                 d="M0 35H32V3H0V4H31V34H0V35Z"
                 fill="#677880"
               />
               <path
-                fill-rule="evenodd"
-                clip-rule="evenodd"
+                fillRule="evenodd"
+                clipRule="evenodd"
                 d="M62 4H32V34H62V4ZM31 3V35H63V3H31Z"
                 fill="#677880"
               />
               <path
-                fill-rule="evenodd"
-                clip-rule="evenodd"
+                fillRule="evenodd"
+                clipRule="evenodd"
                 d="M93 4H63V34H93V4ZM62 3V35H94V3H62Z"
                 fill="#677880"
               />
               <path
-                fill-rule="evenodd"
-                clip-rule="evenodd"
+                fillRule="evenodd"
+                clipRule="evenodd"
                 d="M124 4H94V34H124V4ZM93 3V35H125V3H93Z"
                 fill="#677880"
               />
               <path
-                fill-rule="evenodd"
-                clip-rule="evenodd"
+                fillRule="evenodd"
+                clipRule="evenodd"
                 d="M156 3H124V35H156V34H125V4H156V3Z"
                 fill="#677880"
               />
               <path
-                fill-rule="evenodd"
-                clip-rule="evenodd"
+                fillRule="evenodd"
+                clipRule="evenodd"
                 d="M16 41H-14V71H16V41ZM-15 40V72H17V40H-15Z"
                 fill="#677880"
               />
               <path
-                fill-rule="evenodd"
-                clip-rule="evenodd"
+                fillRule="evenodd"
+                clipRule="evenodd"
                 d="M47 41H17V71H47V41ZM16 40V72H48V40H16Z"
                 fill="#677880"
               />
               <path
-                fill-rule="evenodd"
-                clip-rule="evenodd"
+                fillRule="evenodd"
+                clipRule="evenodd"
                 d="M78 41H48V71H78V41ZM47 40V72H79V40H47Z"
                 fill="#677880"
               />
               <path
-                fill-rule="evenodd"
-                clip-rule="evenodd"
+                fillRule="evenodd"
+                clipRule="evenodd"
                 d="M109 41H79V71H109V41ZM78 40V72H110V40H78Z"
                 fill="#677880"
               />
               <path
-                fill-rule="evenodd"
-                clip-rule="evenodd"
+                fillRule="evenodd"
+                clipRule="evenodd"
                 d="M140 41H110V71H140V41ZM109 40V72H141V40H109Z"
                 fill="#677880"
               />
               <path
-                fill-rule="evenodd"
-                clip-rule="evenodd"
+                fillRule="evenodd"
+                clipRule="evenodd"
                 d="M171 41H141V71H171V41ZM140 40V72H172V40H140Z"
                 fill="#677880"
               />
               <path
-                fill-rule="evenodd"
-                clip-rule="evenodd"
+                fillRule="evenodd"
+                clipRule="evenodd"
                 d="M156 1H0V0H156V1ZM156 4H0V3H156V4Z"
                 fill="#677880"
               />
               <path
-                fill-rule="evenodd"
-                clip-rule="evenodd"
+                fillRule="evenodd"
+                clipRule="evenodd"
                 d="M156 72H0V71H156V72ZM156 75H0V74H156V75Z"
                 fill="#677880"
               />
               <path
-                fill-rule="evenodd"
-                clip-rule="evenodd"
+                fillRule="evenodd"
+                clipRule="evenodd"
                 d="M156 35H0V34H156V35ZM156 38H0V37H156V38ZM156 41H0V40H156V41Z"
                 fill="#677880"
               />
               <path
                 d="M73.6878 13.512C74.0078 13.448 74.2638 13.4267 74.4558 13.448C74.6478 13.448 74.9465 13.5227 75.3518 13.672C75.5652 13.736 75.7465 13.8107 75.8958 13.896C76.0452 13.9813 76.1945 14.088 76.3438 14.216C76.4932 14.344 76.6745 14.5253 76.8878 14.76C77.4212 15.3147 77.8158 15.7733 78.0718 16.136C78.2852 16.456 78.4772 16.6267 78.6478 16.648C78.8398 16.648 78.9785 16.4987 79.0638 16.2C79.2772 15.6027 79.6825 15.016 80.2798 14.44C80.8772 13.864 81.6132 13.5653 82.4878 13.544C83.3625 13.5013 83.9385 13.7573 84.2158 14.312C84.3438 14.568 84.4612 14.76 84.5678 14.888C84.6958 15.08 84.8772 15.656 85.1118 16.616C85.1758 17 85.1332 17.416 84.9838 17.864C84.8772 18.2053 84.6958 18.824 84.4398 19.72C83.8852 21.64 83.3198 22.9413 82.7438 23.624C82.5518 23.88 82.2852 24.2213 81.9438 24.648C81.7092 24.968 81.4425 25.224 81.1438 25.416C80.7812 25.6293 80.0985 26.1947 79.0958 27.112C78.5838 27.56 78.1145 27.688 77.6878 27.496C77.4745 27.4107 77.3678 27.3253 77.3678 27.24C77.3678 27.176 76.9838 26.7387 76.2158 25.928C75.4478 25.1173 74.9572 24.5413 74.7438 24.2C74.5092 23.816 74.1252 23.3147 73.5918 22.696C73.3358 22.376 73.1332 22.1307 72.9838 21.96C72.8558 21.7893 72.7278 21.608 72.5998 21.416C72.4718 21.224 72.3545 21.0427 72.2478 20.872C72.1625 20.7013 72.0452 20.456 71.8958 20.136C71.4265 19.2613 71.1385 18.344 71.0318 17.384C70.9892 16.872 71.0852 16.3387 71.3198 15.784C71.5545 15.2293 71.8852 14.7493 72.3118 14.344C72.7598 13.9173 73.2185 13.64 73.6878 13.512Z"
                 fill="#FF4F6E"
-                class="svg-heart"
+                className="svg-heart"
               />
             </g>
             <defs>
@@ -187,9 +190,13 @@ export default function Login() {
             autoComplete="currnet-password"
           />
 
-          <button className="black-btn" type="submit">
-            로그인
-          </button>
+          {isPending && <strong>로그인이 진행중입니다.</strong>}
+          {!isPending && (
+            <button className="black-btn" type="submit">
+              로그인
+            </button>
+          )}
+          {error && <strong>{error}</strong>}
         </form>
       </main>
 
